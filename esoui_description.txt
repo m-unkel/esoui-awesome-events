@@ -1,0 +1,126 @@
+[SIZE="3"][B]Supported Languages: DE,EN,RU[/B][/SIZE]
+
+[I]-- English version below --[/I]
+
+
+[COLOR="Green"][SIZE="5"][B]Info (DE)[/B][/SIZE][/COLOR]
+
+Dieses AddOn ist eine komplette Neuentwicklung des AddOns "Awesome Info" von CrazyDutchGuy, da dieses seit einiger Zeit nicht mehr weiterentwickelt wurde und die Anpassungsmöglichkeiten begrenzt sind.
+Der Code hat nichts mit dem Original gemeinsam, die optische Darstellung ist jedoch ziemlich gleich.
+Unter folgendem Link findest du die tolle Arbeit von CrazyDutchGuy: [URL="http://esoui.com/downloads/info192-AwesomeInfo.html"]http://esoui.com/downloads/info192-AwesomeInfo.html[/URL].
+
+[B]Verbesserungen[/B]
+[LIST]
+[*]Vollständig übersetzbar
+[*]Einfach erweiterbar durch andere AddOns
+[*]Weniger Gui-Updates, Eventgesteuert, Effizienter
+[*]Neue Informationen / Mehr Informationen
+[*]Jede Zeile kann individuell angepasst werden (Schriftgröße, Abstand)
+[*]Farben der verschiedenen Benachrichtigungs-Typen können angepasst werden
+[*]Vereinfachte Konfiguration durch eine Live-Vorschau von Awesome Events in den Einstellungen
+[*]Konfiguration von einem zum anderen Charakter importierbar
+[/LIST]
+
+[B]Alle Funktionen[/B]
+[LIST]
+[*]Uhrzeit- und optionale Datumsanzeige
+[*]Warnung bei geringer Rüstungshaltbarkeit
+[*]Warnung bei geringer Waffenaufladung
+[*]Warnung bei geringem verbleibendem Inventarplatz
+[*]Neu: Warnung zu verbleibender Zeit oder bereits abgelaufener Buff-Food-Wirkung (automatisches Ausblenden nach 5 Minuten ohne Kampf möglich)
+[*]Hinweis bei ungenutzten Fertigkeits-, Attributs- und Championspunkten
+[*]Hinweis bei ungelesenen Nachrichten
+[*]Hinweis über verbleibende Himmelsscherben bis zum nächsten Fertigkeitspunkt
+[*]Info zu freien Analyse-Slots für die Handwerksberufe oder verbleibender Wartezeit
+[*]Info zu möglichem Reittier-Training oder verbleibender Wartezeit
+[*]Info zu verbleindenden Hehlerei- und Schiebe-Transaktionen
+[*]Neu: Info zu Bankplatz- und Rucksack-Auslastung
+[*]Neu: Info zu akutellem Vermögen (Gold) im Inventar und auf der Bank
+[*]Neu: Info zu Telvar Steinen und Schriebscheinen
+[*]Neu: Info zu vorhandenen Seelensteinen (leere und gefüllte)
+[*]Neu: Info zu vorhandenen Reperatur-Kits (beliebiger Qualität)
+[*]Beispiel-Erweiterung: Flash-Info über Bilanz bei NPC-Verkäufen (Berücksichtigt auch die Ausgaben)
+[/LIST]
+
+[B]Erweiterung hinzufügen[/B]
+Wenn du eigene Erweiterungen zu Awesome Events hinzufügen willst, und ein bisschen Ahnung vom Programmieren hast, schau doch mal in den Quelltext des AwesomeEventsMod AddOns und nutze diesen als Basis für deine Erweiterung.
+Debugging aktivierst du mit dem Befehel: /adebug mod_id on|off
+
+[B]Übersetzung hinzufügen[/B]
+Falls du dieses AddOn in deine Sprache übersetzen möchtest, würde ich mich freuen, wenn du mir eine Kopie deiner Übersetzungs-Datei schickst, damit alle was davon haben. Danke! :)
+Meine Texte und Übersetzungen sind sicher nicht perfekt, daher sind Verbesserungsvorschläge immer gerne gesehen!
+
+[B]Wünsche / Kritik[/B]
+Dieses AddOn wurde über längere Zeit getestet, trotzdem kann ich keine Bugs ausschließen.
+Wenn du einen Fehler findest, melde dich umgehend bei mir, vielen Dank. :)
+Wenn du Vorschläge für neue Funktionen hast oder generell Kritik loswerden willst, schreib mir einfach.
+
+[B]In Planung / Tests[/B]
+[LIST]
+[*] Neue Version 2.0 mit komplett neuem Layout (in Planung)
+[/LIST]
+
+[B]Danksagungen[/B]
+Danke an Memoraike für die russische Übersetzung
+Danke an alle Mitglieder für ihre Verbesserungsvorschläge, die Fehlerberichte und Kommentare
+
+
+
+[COLOR="Green"][SIZE="5"][B]Info (EN)[/B][/SIZE][/COLOR]
+
+The addon is based on "Awesome Info" by CrazyDutchGuy. Because his addon hasn't received any updates since eight months I wanted to redevelop it and also make it more flexible for own adjustments. Optically it might seem just slightly different but my new code doesn't have anything in common with the old lines.
+If you are interested in the original version check out his great work at [URL="http://esoui.com/downloads/info192-AwesomeInfo.html"]http://esoui.com/downloads/info192-AwesomeInfo.html[/URL].
+
+[B]Improvements[/B]
+[LIST]
+[*]Fully translatable
+[*]Easily extendable with labels from other mods
+[*]Less redraws / updates, event-driven, more efficient
+[*]More built-in information
+[*]The look of every label can be customized (size and spacing)
+[*]The colors of the different types of notifications can be customized
+[*]Simplified configuration through a live preview
+[*]Import/Copy config from one character to another
+[/LIST]
+
+[B]All Features[/B]
+[LIST]
+[*]Diplay a Clock and (optionally) the date
+[*]Low armor durability warning
+[*]Low weapon charge warning
+[*]Remaining bag space warning
+[*]New: Buff-food effect expire timer / no buff-food effect warning (auto-hide after 5 minutes out of combat available)
+[*]Unused attribute-, skill- and championpoints info
+[*]unread mails info
+[*]Missing skyshards info
+[*]Crafts research timer / or available analysis slot info
+[*]Remaining mount training timer / or training available info
+[*]Remaining thieve guild sells and launders info
+[*]New: Backpack and bank usage info
+[*]New: Current money info
+[*]New: Telvar stones and writ vouchers info
+[*]New: Amount of soul gems info (empty and filled soul gems)
+[*]New: Amount of Repair-Kits info (kits of any quality)
+[*]Example-Extension: Flash-Info sale balance at NPC-Sells (including expenses)
+[/LIST]
+
+[B]Create an extension[/B]
+If you would like to extend this addon and you have some experience in programming, please have a look at the AwesomeEventsMod's source code and base your work on it.
+
+[B]Adding translations[/B]
+If you want to translate this addon into your language, please send me a copy of your translation file. I'll include it into the next update of this addon so that everyone can benefit from it. Thanks in advance! :)
+My translations and expressions aren't perfect, so please feel free to suggest improvements to existing translations.
+
+[B]Wishes/ Critics[/B]
+This addon has been tested for quite some time, however I can't guarantee that it is entirely bug-free.
+If you find bugs, please report them as soon as possible. :)
+Feel free to request new features or just tell me your opinion about this work.
+
+[B]Todo[/B]
+[LIST]
+[*] New redesigned version 2.0 (in planning)
+[/LIST]
+
+[B]Credits[/B]
+Thanks to Memoraike for the russian translation
+Thanks to all members for their feedback, comments and for testing my addon
