@@ -3,7 +3,7 @@
 
   Author: @Ze_Mi <zemi@unive.de>
   Filename: Clock.lua
-  Last Modified: 28.05.18 17:45
+  Last Modified: 29.05.18 21:30
 
   Copyright (c) 2018 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
@@ -25,22 +25,70 @@ MOD.label = {}
 MOD.label[LABEL_CLOCK] = {}
 MOD.label[LABEL_DATE] = {}
 
+local function GetDateString(dateString)
+    local date = GetDate()
+    local year,month,day = string.sub(date,1,4), string.sub(date,5,6), string.sub(date,7,8)
+    dateString = string.gsub(dateString,"year",year,1)
+    dateString = string.gsub(dateString,"day",day,1)
+    dateString = string.gsub(dateString,"month",month,1)
+    return dateString
+end -- GetDateString
+
+local function GetLocalDateString(dateString)
+    dateString = string.gsub(dateString,"year",GetString(SI_AWEMOD_CLOCK_DATEFORMAT_YEAR),1)
+    dateString = string.gsub(dateString,"day",GetString(SI_AWEMOD_CLOCK_DATEFORMAT_DAY),1)
+    dateString = string.gsub(dateString,"month",GetString(SI_AWEMOD_CLOCK_DATEFORMAT_MONTH),1)
+    return dateString
+end
+local function GetGlobalDateString(dateString)
+    dateString = string.gsub(dateString,GetString(SI_AWEMOD_CLOCK_DATEFORMAT_YEAR),"year",1)
+    dateString = string.gsub(dateString,GetString(SI_AWEMOD_CLOCK_DATEFORMAT_DAY),"day",1)
+    dateString = string.gsub(dateString,GetString(SI_AWEMOD_CLOCK_DATEFORMAT_MONTH),"month",1)
+    return dateString
+end
+
+local CONFIG_DATE_FORMAT,DATE_FORMAT = {},{
+    "day/month/year",
+    "day/month",
+    "month/day/year",
+    "month/day",
+    "day.month.year",
+    "day.month",
+    "month.day.year",
+    "month.day",
+}
+
+for k,v in pairs(DATE_FORMAT) do
+    table.insert(CONFIG_DATE_FORMAT,GetLocalDateString(v) .. ' (' .. GetDateString(v) .. ')')
+end
+
+
 -- USER SETTINGS
 
 MOD.options = {
-    hoursFormat24 = {
-        type = "checkbox",
-        name = GetString(SI_AWEMOD_CLOCK_FORMAT),
-        tooltip = GetString(SI_AWEMOD_CLOCK_FORMAT_HINT),
-        default = true,
-        order = 1,
-    },
     style = {
         type = 'dropdown',
         name = GetString(SI_AWEMOD_CLOCK_STYLE),
         tooltip = GetString(SI_AWEMOD_CLOCK_STYLE_HINT),
         choices = {GetString(SI_AWEMOD_CLOCK_STYLE_TIME),GetString(SI_AWEMOD_CLOCK_STYLE_DATETIME_SHORT),GetString(SI_AWEMOD_CLOCK_STYLE_DATETIME_LONG)},
         default = GetString(SI_AWEMOD_CLOCK_STYLE_TIME),
+        order = 1,
+    },
+    hoursFormat24 = {
+        type = "checkbox",
+        name = GetString(SI_AWEMOD_CLOCK_FORMAT),
+        tooltip = GetString(SI_AWEMOD_CLOCK_FORMAT_HINT),
+        default = true,
+        order = 2,
+    },
+    dateFormat = {
+        type = "dropdown",
+        name = GetString(SI_AWEMOD_CLOCK_DATEFORMAT),
+        tooltip = GetString(SI_AWEMOD_CLOCK_DATEFORMAT_HINT),
+        choices = CONFIG_DATE_FORMAT,
+        default = GetLocalDateString(GetString(SI_AWEMOD_CLOCK_DATEFORMAT_DEFAULT)) .. ' (' .. GetDateString(GetString(SI_AWEMOD_CLOCK_DATEFORMAT_DEFAULT)) .. ')',
+        getTransformer = function(value) return GetLocalDateString(value) .. ' (' .. GetDateString(value) .. ')'  end,
+        setTransformer = function(value) return GetGlobalDateString(string.match(value, "(.*)%s")) end,
         order = 2,
     },
 }
@@ -50,6 +98,7 @@ MOD.fontSize = 5
 
 function MOD:Enable(options)
     self:d('Enable (in debug-mode)')
+
     self.dataUpdated = true
 end -- MOD:Enable
 
@@ -85,24 +134,14 @@ end -- MOD:OnTimer
 
 -- LABEL HANDLER
 
-local function GetDateString(short)
-    local date = GetDate()
-    local year,month,day = string.sub(date,1,4), string.sub(date,5,6), string.sub(date,7,8)
-    local dateString = short and GetString(SI_AWEMOD_CLOCK_DATEFORMAT_SHORT) or GetString(SI_AWEMOD_CLOCK_DATEFORMAT_LONG)
-    dateString = string.gsub(dateString,"year",year,1)
-    dateString = string.gsub(dateString,"day",day,1)
-    dateString = string.gsub(dateString,"month",month,1)
-    return dateString
-end -- GetDateString
-
 function MOD:Update(options)
     self:d('Update',options)
     local labelText = ''
 
     if(options.style == GetString(SI_AWEMOD_CLOCK_STYLE_DATETIME_LONG)) then
-        self.label[LABEL_DATE]:SetText(GetDateString(false))
+        self.label[LABEL_DATE]:SetText(GetDateString(options.dateFormat))
     elseif(options.style == GetString(SI_AWEMOD_CLOCK_STYLE_DATETIME_SHORT)) then
-        labelText = GetDateString(true) .. ' - '
+        labelText = GetDateString(options.dateFormat) .. ' - '
     end
 
     local timeFormat = TIME_FORMAT_PRECISION_TWELVE_HOUR

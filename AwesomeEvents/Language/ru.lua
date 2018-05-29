@@ -3,9 +3,9 @@
 
   Author: Memoraike
   Filename: ru.lua
-  Last Modified: 05.07.17 18:24
+  Last Modified: 29.05.18 21:30
 
-  Copyright (c) 2017 by Memoraike
+  Copyright (c) 2018 by Martin Unkel and Memoraike
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
   Please read the README file for further information.
@@ -83,13 +83,17 @@ SafeAddString(SI_AWEMOD_BUFFFOOD_HIDENOCOMBAT_HINT, "Если у Вас не а�
 --module-clock
 SafeAddString(SI_AWEMOD_CLOCK, "Время и дата", 1)
 SafeAddString(SI_AWEMOD_CLOCK_HINT, "Отображать текущее системное время.", 1)
-SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT_SHORT, "day.month", 1) -- do not translate the words, just change the order or the seperator chars between
-SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT_LONG, "day.month.year", 1) -- do not translate the words, just change the order or the seperator chars between
+--SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT, "Date format", 1)
+--SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT_HINT, "Choose your prefered date format.", 1)
+SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT_DAY, "день", 1)
+SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT_MONTH, "месяц", 1)
+SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT_YEAR, "год", 1)
+SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT_DEFAULT, "day.month.year", 1) -- do not translate the words, just change the order or the seperator chars between
 SafeAddString(SI_AWEMOD_CLOCK_STYLE, "Appearance", 1)
-SafeAddString(SI_AWEMOD_CLOCK_STYLE_HINT, "Choose your preferred appearance.", 1)
-SafeAddString(SI_AWEMOD_CLOCK_STYLE_TIME, "Time only", 1)
-SafeAddString(SI_AWEMOD_CLOCK_STYLE_DATETIME_SHORT, "Date & Time (1-line)", 1)
-SafeAddString(SI_AWEMOD_CLOCK_STYLE_DATETIME_LONG, "Date & Time (2-lines)", 1)
+--SafeAddString(SI_AWEMOD_CLOCK_STYLE_HINT, "Choose your preferred appearance.", 1)
+--SafeAddString(SI_AWEMOD_CLOCK_STYLE_TIME, "Time only", 1)
+--SafeAddString(SI_AWEMOD_CLOCK_STYLE_DATETIME_SHORT, "Date & Time (1-line)", 1)
+--SafeAddString(SI_AWEMOD_CLOCK_STYLE_DATETIME_LONG, "Date & Time (2-lines)", 1)
 SafeAddString(SI_AWEMOD_CLOCK_FORMAT, "24 формат времени", 1)
 SafeAddString(SI_AWEMOD_CLOCK_FORMAT_HINT, "Отображать время в 24 формате или в 12 формате.", 1)
 

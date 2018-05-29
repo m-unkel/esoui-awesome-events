@@ -3,7 +3,7 @@
 
   Author: @Ze_Mi <zemi@unive.de>
   Filename: strings.lua
-  Last Modified: 28.05.18 17:25
+  Last Modified: 29.05.18 20:30
 
   Copyright (c) 2018 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
@@ -79,8 +79,12 @@ local strings = {
 	--module-clock
 	SI_AWEMOD_CLOCK="Time and Date",
 	SI_AWEMOD_CLOCK_HINT="Get a clock on your screen, optionally with the current date.",
-	SI_AWEMOD_CLOCK_DATEFORMAT_SHORT="month/day",
-	SI_AWEMOD_CLOCK_DATEFORMAT_LONG="month/day/year",
+	SI_AWEMOD_CLOCK_DATEFORMAT="Date format",
+	SI_AWEMOD_CLOCK_DATEFORMAT_HINT="Choose your prefered date format.",
+	SI_AWEMOD_CLOCK_DATEFORMAT_DAY="day",
+	SI_AWEMOD_CLOCK_DATEFORMAT_MONTH="month",
+	SI_AWEMOD_CLOCK_DATEFORMAT_YEAR="year",
+	SI_AWEMOD_CLOCK_DATEFORMAT_DEFAULT="month/day/year",
 	SI_AWEMOD_CLOCK_STYLE="Appearance",
 	SI_AWEMOD_CLOCK_STYLE_HINT="Choose your preferred appearance.",
 	SI_AWEMOD_CLOCK_STYLE_TIME="Time only",

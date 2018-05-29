@@ -3,7 +3,7 @@
 
   Author: @Ze_Mi <zemi@unive.de>
   Filename: de.lua
-  Last Modified: 28.05.18 17:25
+  Last Modified: 29.05.18 21:30
 
   Copyright (c) 2018 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
@@ -79,14 +79,18 @@ SafeAddString(SI_AWEMOD_BUFFFOOD_HIDENOCOMBAT_HINT, "Wenn du keinen Versorgungs-
 --module-clock
 SafeAddString(SI_AWEMOD_CLOCK, "Uhrzeit und Datum", 1)
 SafeAddString(SI_AWEMOD_CLOCK_HINT, "Zeige die aktuelle Uhrzeit und das Datum auf dem Bildschirm an.", 1)
-SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT_SHORT, "day.month", 1)
-SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT_LONG, "day.month.year", 1)
+SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT, "Datumsformat", 1)
+SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT_HINT, "Wähle die gewünschte Darstellung für die Datumsformatierung aus.", 1)
+SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT_DAY, "tag", 1)
+SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT_MONTH, "monat", 1)
+SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT_YEAR, "jahr", 1)
+SafeAddString(SI_AWEMOD_CLOCK_DATEFORMAT_DEFAULT, "day.month.year", 1)
 SafeAddString(SI_AWEMOD_CLOCK_STYLE, "Darstellung", 1)
 SafeAddString(SI_AWEMOD_CLOCK_STYLE_HINT, "Wähle deine bevorzugte Darstellung.", 1)
 SafeAddString(SI_AWEMOD_CLOCK_STYLE_TIME, "Nur Uhrzeit", 1)
 SafeAddString(SI_AWEMOD_CLOCK_STYLE_DATETIME_SHORT, "Datum & Uhrzeit (Einzeilig)", 1)
 SafeAddString(SI_AWEMOD_CLOCK_STYLE_DATETIME_LONG, "Datum & Uhrzeit (Zweizeilig)", 1)
-SafeAddString(SI_AWEMOD_CLOCK_FORMAT, "Format 24-Stunden", 1)
+SafeAddString(SI_AWEMOD_CLOCK_FORMAT, "Uhrzeit 24-Stunden-Format", 1)
 SafeAddString(SI_AWEMOD_CLOCK_FORMAT_HINT, "Schalte auf das 24-Stunden Format statt 12-Stunden (+AM/PM) Format um.", 1)
 
 --module-crafting

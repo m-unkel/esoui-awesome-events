@@ -3,6 +3,11 @@
 
 [COLOR="Green"][SIZE="5"][B]Changelog (DE)[/B][/SIZE][/COLOR]
 
+[B]1.4-RC3 (29.05.2018):[/B]
+[LIST]
+[*]Neu: Datumsformat kann aus einer Liste ausgewählt werden
+[/LIST]
+
 [B]1.4-RC2 (28.05.2018):[/B]
 [LIST]
 [*]Neu: Analysehinweis für Schmuckhandwerk hinzugefügt
@@ -113,6 +118,11 @@
 
 
 [COLOR="Green"][SIZE="5"][B]Changelog (EN)[/B][/SIZE][/COLOR]
+
+[B]1.4-RC3 (29.05.2018):[/B]
+[LIST]
+[*]Neu: Dateformat can be chosen form a list
+[/LIST]
 
 [B]1.4-RC2 (28.05.2018):[/B]
 [LIST]

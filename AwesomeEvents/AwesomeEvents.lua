@@ -3,7 +3,7 @@
 
   Author: @Ze_Mi <zemi@unive.de>
   Filename: AwesomeEvents.lua
-  Last Modified: 28.05.18 17:53
+  Last Modified: 29.05.18 21:30
 
   Copyright (c) 2018 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
@@ -15,7 +15,7 @@ Awesome_Events = {
     name = 'AwesomeEvents',
     panelName = 'AwesomeEventsOptions',
     title = 'Awesome Events',
-    version = '1.4-RC2',
+    version = '1.4-RC3',
 
     defaults = {
         isDefault = true,
@@ -219,18 +219,22 @@ end -- Awesome_Events:ImportConfigFromCharacter
 ---
 
 --- create a getFcn function callback for LAM panelOptions
-local function __CreateSettingsGetter(mod_id,key)
+local function __CreateSettingsGetter(mod_id,key,transformer)
     if(libAM.modules[mod_id] == nil) then return end
     local mod = libAM.modules[mod_id]
     if(key=='spacingPosition')then
         return function() return Awesome_Events.GetSpacingPositionString(Awesome_Events.vars[mod_id][key]) end
     else
-        return function() return Awesome_Events.vars[mod_id][key] end
+        if(transformer ~= nil)then
+            return function() return transformer(Awesome_Events.vars[mod_id][key]) end
+        else
+            return function() return Awesome_Events.vars[mod_id][key] end
+        end
     end
 end -- __CreateSettingsGetter
 
 --- create a setFcn function callback for LAM panelOptions
-local function __CreateSettingsSetter(mod_id,key)
+local function __CreateSettingsSetter(mod_id,key,transformer)
     if(libAM.modules[mod_id] == nil) then return end
     local mod = libAM.modules[mod_id]
     if(key=='enabled')then
@@ -263,6 +267,9 @@ local function __CreateSettingsSetter(mod_id,key)
         end
     end
     return function(value)
+        if(transformer ~= nil)then
+            value = transformer(value)
+        end
         Awesome_Events.vars[mod_id][key] = value
         libAM.d('main','Set['..mod_id..']: '..key,value)
         mod:Set(key,value)
@@ -441,8 +448,16 @@ function Awesome_Events:LoadModulesConfiguration()
         for key,option in mod:option_pairs() do
             if(option.type~=nil and option.name ~= nil and option.tooltip ~= nil and option.default ~= nil)then
                 self.defaults[mod_id][key] = option.default
-                option.getFunc = __CreateSettingsGetter(mod_id,key)
-                option.setFunc = __CreateSettingsSetter(mod_id,key)
+                if(option.getTransformer ~= nil)then
+                    option.getFunc = __CreateSettingsGetter(mod_id,key,option.getTransformer)
+                else
+                    option.getFunc = __CreateSettingsGetter(mod_id,key)
+                end
+                if(option.setTransformer ~= nil)then
+                    option.setFunc = __CreateSettingsSetter(mod_id,key,option.setTransformer)
+                else
+                    option.setFunc = __CreateSettingsSetter(mod_id,key)
+                end
                 option.disabled = __CreateSettingsDisabler(mod_id,'enabled')
                 table.insert( panelOptions, option )
             else
