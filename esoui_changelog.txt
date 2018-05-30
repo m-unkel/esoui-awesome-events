@@ -121,7 +121,7 @@
 
 [B]1.4-RC3 (29.05.2018):[/B]
 [LIST]
-[*]Neu: Dateformat can be chosen form a list
+[*]New: Dateformat can be chosen form a list
 [/LIST]
 
 [B]1.4-RC2 (28.05.2018):[/B]
