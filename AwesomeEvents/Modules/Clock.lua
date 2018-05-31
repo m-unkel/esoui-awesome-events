@@ -3,7 +3,7 @@
 
   Author: @Ze_Mi <zemi@unive.de>
   Filename: Clock.lua
-  Last Modified: 29.05.18 21:30
+  Last Modified: 31.05.18 15:30
 
   Copyright (c) 2018 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
@@ -86,7 +86,7 @@ MOD.options = {
         name = GetString(SI_AWEMOD_CLOCK_DATEFORMAT),
         tooltip = GetString(SI_AWEMOD_CLOCK_DATEFORMAT_HINT),
         choices = CONFIG_DATE_FORMAT,
-        default = GetLocalDateString(GetString(SI_AWEMOD_CLOCK_DATEFORMAT_DEFAULT)) .. ' (' .. GetDateString(GetString(SI_AWEMOD_CLOCK_DATEFORMAT_DEFAULT)) .. ')',
+        default = GetString(SI_AWEMOD_CLOCK_DATEFORMAT_DEFAULT),
         getTransformer = function(value) return GetLocalDateString(value) .. ' (' .. GetDateString(value) .. ')'  end,
         setTransformer = function(value) return GetGlobalDateString(string.match(value, "(.*)%s")) end,
         order = 2,

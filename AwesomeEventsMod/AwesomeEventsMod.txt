@@ -1,7 +1,7 @@
 ## APIVersion: 100023
-## Version: 1.4-RC3
+## Version: 1.4-RC4
 ## Title: |cFFFFB0Awesome Module - Balancing|r
-## Description: This AddOn is a balancing module to show you how to add new modules and notifications to the AwesomeEvents AddOn. (Version: 1.4-RC3)
+## Description: This AddOn is a balancing module to show you how to add new modules and notifications to the AwesomeEvents AddOn. (Version: 1.4-RC4)
 ## Author: Ze_Mi
 ## OptionalDependsOn: LibStub, LibAwesomeModule-1.0
 ##

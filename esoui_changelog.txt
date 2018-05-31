@@ -3,6 +3,11 @@
 
 [COLOR="Green"][SIZE="5"][B]Changelog (DE)[/B][/SIZE][/COLOR]
 
+[B]1.4-RC4 (31.05.2018):[/B]
+[LIST]
+[*]Fix: Datumsformat wird im Datum angezeigt, wenn noch kein Format in den Einstellungen gewählt wurde.
+[/LIST]
+
 [B]1.4-RC3 (29.05.2018):[/B]
 [LIST]
 [*]Neu: Datumsformat kann aus einer Liste ausgewählt werden
@@ -118,6 +123,11 @@
 
 
 [COLOR="Green"][SIZE="5"][B]Changelog (EN)[/B][/SIZE][/COLOR]
+
+[B]1.4-RC4 (31.05.2018):[/B]
+[LIST]
+[*]Fix: Dateformat string is displayed instead of formatted date until the user chooses a format in settings.
+[/LIST]
 
 [B]1.4-RC3 (29.05.2018):[/B]
 [LIST]

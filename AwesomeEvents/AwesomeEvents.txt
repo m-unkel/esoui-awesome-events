@@ -1,7 +1,7 @@
 ## APIVersion: 100023
-## Version: 1.4-RC3
+## Version: 1.4-RC4
 ## Title: |cFFFFB0Awesome Events|r
-## Description: This addon adds many customizable notifications and information to your UI. (Version: 1.4-RC3)
+## Description: This addon adds many customizable notifications and information to your UI. (Version: 1.4-RC4)
 ## Author: Ze_Mi
 ## OptionalDependsOn: LibStub, LibAddonMenu-2.0, LibAwesomeModule-1.0
 ## SavedVariables: AwesomeEvents
