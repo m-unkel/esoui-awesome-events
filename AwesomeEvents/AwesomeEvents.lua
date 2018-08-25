@@ -3,7 +3,7 @@
 
   Author: @Ze_Mi <zemi@unive.de>
   Filename: AwesomeEvents.lua
-  Last Modified: 31.05.18 15:30
+  Last Modified: 25.08.18 14:00
 
   Copyright (c) 2018 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
@@ -15,7 +15,7 @@ Awesome_Events = {
     name = 'AwesomeEvents',
     panelName = 'AwesomeEventsOptions',
     title = 'Awesome Events',
-    version = '1.4-RC4',
+    version = '1.4-RC5',
 
     defaults = {
         isDefault = true,

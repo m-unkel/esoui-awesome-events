@@ -3,6 +3,11 @@
 
 [COLOR="Green"][SIZE="5"][B]Changelog (DE)[/B][/SIZE][/COLOR]
 
+[B]1.4-RC5 (25.08.2018):[/B]
+[LIST]
+[*]API Bump für 100024
+[/LIST]
+
 [B]1.4-RC4 (31.05.2018):[/B]
 [LIST]
 [*]Fix: Datumsformat wird im Datum angezeigt, wenn noch kein Format in den Einstellungen gewählt wurde.
@@ -123,6 +128,11 @@
 
 
 [COLOR="Green"][SIZE="5"][B]Changelog (EN)[/B][/SIZE][/COLOR]
+
+[B]1.4-RC5 (25.08.2018):[/B]
+[LIST]
+[*]API Bump for 100024
+[/LIST]
 
 [B]1.4-RC4 (31.05.2018):[/B]
 [LIST]
