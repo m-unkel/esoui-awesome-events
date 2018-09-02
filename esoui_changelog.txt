@@ -3,9 +3,15 @@
 
 [COLOR="Green"][SIZE="5"][B]Changelog (DE)[/B][/SIZE][/COLOR]
 
+[B]1.5-RC1 (02.09.2018):[/B]
+[LIST]
+[*]Der Hinweis 'Aktiviere ein AwesomeEvents Modul' ist nun in den Einstellungen an- und abschaltbar
+[*]Zur Erkennung von BuffFood wird nun LibFoodDrinkBuff verwendet
+[/LIST]
+
 [B]1.4-RC5 (25.08.2018):[/B]
 [LIST]
-[*]API Bump für 100024
+[*]API Bump für Wolfhunter
 [/LIST]
 
 [B]1.4-RC4 (31.05.2018):[/B]
@@ -129,9 +135,15 @@
 
 [COLOR="Green"][SIZE="5"][B]Changelog (EN)[/B][/SIZE][/COLOR]
 
+[B]1.5-RC1 (02.09.2018):[/B]
+[LIST]
+[*]The 'Enabled an AwesomeEvents module' hint can be switched on and off in settings
+[*]LibFoodDrinkBuff is used for recognition of food buffs.
+[/LIST]
+
 [B]1.4-RC5 (25.08.2018):[/B]
 [LIST]
-[*]API Bump for 100024
+[*]API Bump for Wolfhunter
 [/LIST]
 
 [B]1.4-RC4 (31.05.2018):[/B]

@@ -3,7 +3,7 @@
 
   Author: @Ze_Mi <zemi@unive.de>
   Filename: de.lua
-  Last Modified: 29.05.18 21:30
+  Last Modified: 02.09.18 17:30
 
   Copyright (c) 2018 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
@@ -13,7 +13,7 @@
   ]]
 
 --main
-SafeAddString(SI_AWEVS_NO_ACTIVE_MOD, "Aktiviere ein AwesomeEvents Modul", 1)
+SafeAddString(SI_AWEVS_ALL_MODS_DISABLED, "Aktiviere ein AwesomeEvents Modul", 1)
 SafeAddString(SI_AWEVS_DESCRIPTION, "Mit AwesomeEvents kannst du während dem Spielen über viele interessante Ergeignisse informiert werden.\nDa es viele Module und Anpassungsmöglichkeiten gibt,\nsolltest du dir kurz Zeit nehmen und einmal alle Optionen bis unten durch stöbern.\nBei Verbesserungsvorschlägen, Wünschen, neuen Übersetzungen oder Fehlern, wende dich einfach an <zemi@unive.de> oder über das Spiel EU\PC @Ze_Mi :)", 1)
 
 --debug
@@ -43,6 +43,8 @@ SafeAddString(SI_AWEVS_APPEARANCE_COLOR_HINT,"Farbe von Hinweisen", 1)
 SafeAddString(SI_AWEVS_APPEARANCE_COLOR_HINT_HINT, "Ändere die Textfarbe von Hinweis-Meldungen.", 1)
 SafeAddString(SI_AWEVS_APPEARANCE_COLOR_WARNING,"Farbe von Warnungen", 1)
 SafeAddString(SI_AWEVS_APPEARANCE_COLOR_WARNING_HINT, "Ändere die Textfarbe von Warnungen.", 1)
+SafeAddString(SI_AWEVS_APPEARANCE_SHOWDISABLEDTEXT, "Hinweis: Kein Modul aktiviert", 1)
+SafeAddString(SI_AWEVS_APPEARANCE_SHOWDISABLEDTEXT_HINT, "Zeige einen Hinweis im Awesome Events Fenster, wenn keine Module aktiviert sind.", 1)
 
 --import
 SafeAddString(SI_AWEVS_IMPORT,"Einstellungen Importieren", 1)

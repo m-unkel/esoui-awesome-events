@@ -3,7 +3,7 @@
 
   Author: @Ze_Mi <zemi@unive.de>
   Filename: BuffFood.lua
-  Last Modified: 02.11.17 16:36
+  Last Modified: 02.09.18 20:30
 
   Copyright (c) 2017 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
@@ -12,6 +12,7 @@
   ]]
 
 local libAM = LibStub('LibAwesomeModule-1.0')
+local libFoodDrinkBuff = LibStub:GetLibrary("LibFoodDrinkBuff")
 local MOD = libAM:New('bufffood')
 
 MOD.title = GetString(SI_AWEMOD_BUFFFOOD)
@@ -78,17 +79,22 @@ end
 -- EVENT LISTENER
 
 local function __isFoodBuff(abilityId)
-    local foodAbilityIds = {
-        [17407]=1,[17577]=1,[17581]=1,[17608]=1,[17614]=1,[61218]=1,[61255]=1,[61257]=1,[61259]=1,[61260]=1,
-        [61261]=1,[61294]=1,[61322]=1,[61325]=1,[61328]=1,[61335]=1,[61340]=1,[61345]=1,[61350]=1,[66125]=1,
-        [66128]=1,[66130]=1,[66132]=1,[66137]=1,[66141]=1,[66551]=1,[66568]=1,[66576]=1,[66586]=1,[66590]=1,
-        [66594]=1,[68411]=1,[68416]=1,[72816]=1,[72819]=1,[72822]=1,[72824]=1,[72956]=1,[72959]=1,[72961]=1,
-        [72965]=1,[72968]=1,[72971]=1,[84678]=1,[84681]=1,[84700]=1,[84704]=1,[84709]=1,[84720]=1,[84725]=1,
-        [84731]=1,[84735]=1,[85484]=1,[85497]=1,[86559]=1,[86673]=1,[86677]=1,[86746]=1,[86749]=1,[86787]=1,
-        [86789]=1,[86791]=1,[89955]=1,[89957]=1,[89971]=1,[92433]=1,[92435]=1,[92474]=1,[92476]=1
-    }
-    return foodAbilityIds[abilityId]~=nil
-end -- __isFoodBuff
+    if(libFoodDrinkBuff)then
+        return libFoodDrinkBuff:IsAbilityADrinkBuff(abilityId) ~= nil
+    else
+        MOD:d("libFoodDrinkBuff is nil")
+        local foodAbilityIds = {
+            [17407]=1,[17577]=1,[17581]=1,[17608]=1,[17614]=1,[61218]=1,[61255]=1,[61257]=1,[61259]=1,[61260]=1,
+            [61261]=1,[61294]=1,[61322]=1,[61325]=1,[61328]=1,[61335]=1,[61340]=1,[61345]=1,[61350]=1,[66125]=1,
+            [66128]=1,[66130]=1,[66132]=1,[66137]=1,[66141]=1,[66551]=1,[66568]=1,[66576]=1,[66586]=1,[66590]=1,
+            [66594]=1,[68411]=1,[68416]=1,[72816]=1,[72819]=1,[72822]=1,[72824]=1,[72956]=1,[72959]=1,[72961]=1,
+            [72965]=1,[72968]=1,[72971]=1,[84678]=1,[84681]=1,[84700]=1,[84704]=1,[84709]=1,[84720]=1,[84725]=1,
+            [84731]=1,[84735]=1,[85484]=1,[85497]=1,[86559]=1,[86673]=1,[86677]=1,[86746]=1,[86749]=1,[86787]=1,
+            [86789]=1,[86791]=1,[89955]=1,[89957]=1,[89971]=1,[92433]=1,[92435]=1,[92474]=1,[92476]=1
+        }
+        return foodAbilityIds[abilityId]~=nil
+    end
+end -- MOD:isFoodBuff
 
 -- EVENT LISTENER
 
@@ -103,7 +109,7 @@ function MOD:GetEventListeners()
         {
             eventCode = EVENT_EFFECT_CHANGED,
             callback = function(eventCode, changeType, effectSlot, effectName, unitTag, beginTime, endTime, stackCount, iconName, buffType, effectType, abilityType, statusEffectType, unitName, unitId, abilityId, sourceUnitType)
-                if(sourceUnitType == COMBAT_UNIT_TYPE_PLAYER and effectType == BUFF_EFFECT_TYPE_BUFF and statusEffectType == STATUS_EFFECT_TYPE_NONE and __isFoodBuff(abilityId))then
+                if(sourceUnitType == COMBAT_UNIT_TYPE_PLAYER and effectType == BUFF_EFFECT_TYPE_BUFF and statusEffectType == STATUS_EFFECT_TYPE_NONE)then
                     MOD:OnEffectChanged(abilityId,changeType,effectName,endTime)
                 end
             end,
@@ -189,8 +195,9 @@ function MOD:OnEffectChanged(abilityId,changeType,effectName,endTime)
         for i=1,numBuffs do
             --local buffName, timeStarted, timeEnding, buffSlot, stackCount, iconFilename, buffType, effectType, abilityType, statusEffectType, abilityId, canClickOff, castByPlayer
             local buffName, _, timeEnding, _, _, _, _, _, _, _, abilityId, _, _ = GetUnitBuffInfo('player', i)
-            self:d(buffName .. (__isFoodBuff(abilityId) and ' is a foodbuff' or ' is not a foodbuff'))
-            if(__isFoodBuff(abilityId))then
+            local isFoodBuff = __isFoodBuff(abilityId);
+            self:d(buffName .. (isFoodBuff and ' is a foodbuff' or ' is not a foodbuff') .. ' ' .. abilityId   )
+            if(isFoodBuff)then
                 local secondsLeft =  math.ceil(timeEnding-GetFrameTimeSeconds())
                 self.data.buffName = buffName
                 self.data.availableAt = GetTimeStamp() + secondsLeft

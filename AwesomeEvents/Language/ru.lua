@@ -3,7 +3,7 @@
 
   Author: Memoraike
   Filename: ru.lua
-  Last Modified: 29.05.18 21:30
+  Last Modified: 02.09.18 17:30
 
   Copyright (c) 2018 by Martin Unkel and Memoraike
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
@@ -17,7 +17,7 @@
 ---
 
 --main
-SafeAddString(SI_AWEVS_NO_ACTIVE_MOD, "Нет активных модулей", 1)
+SafeAddString(SI_AWEVS_ALL_MODS_DISABLED, "Нет активных модулей", 1)
 SafeAddString(SI_AWEVS_DESCRIPTION, "С AwesomeEvents Вы можете получить уведомления о множестве интересных событий во время игры,\nтак как здесь множество модулей и путей для настройки под Ваш стиль игры, не забудьте просмотреть все настройки.\nЕсли у Вас есть какие-либо пожелания, улучшения, переводы или же заметили ошибку, то не стесняйтесь и пишите автору <zemi@unive.de> или же в игре EU\PC @Ze_Mi :)", 1)
 
 --debug
@@ -47,6 +47,8 @@ SafeAddString(SI_AWEVS_APPEARANCE_COLOR_HINT,"Цвет уведомлений", 
 SafeAddString(SI_AWEVS_APPEARANCE_COLOR_HINT_HINT, "Изменить цвет текста уведомлений.", 1)
 SafeAddString(SI_AWEVS_APPEARANCE_COLOR_WARNING,"Цвет предупреждений", 1)
 SafeAddString(SI_AWEVS_APPEARANCE_COLOR_WARNING_HINT, "Изменить цвет текста предупреждений.", 1)
+SafeAddString(SI_AWEVS_APPEARANCE_SHOWDISABLEDTEXT, "Hint: No module enabled", 1)
+SafeAddString(SI_AWEVS_APPEARANCE_SHOWDISABLEDTEXT_HINT, "Show a message in the awesome events window if all modules are disabled.", 1)
 
 --import
 SafeAddString(SI_AWEVS_IMPORT, "Импорт настроек", 1)

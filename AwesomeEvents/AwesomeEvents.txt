@@ -1,16 +1,16 @@
-## APIVersion: 100024
-## Version: 1.4-RC5
-## Title: |cFFFFB0Awesome Events|r
-## Description: This addon adds many customizable notifications and information to your UI. (Version: 1.4-RC5)
+﻿## Title: |cFFFFB0Awesome Events|r
 ## Author: Ze_Mi
-## OptionalDependsOn: LibStub, LibAddonMenu-2.0, LibAwesomeModule-1.0
+## Description: This addon adds many customizable notifications and information to your UI. (Version: 1.5-RC1)
+## Version: 1.5-RC1
+## APIVersion: 100024
+## OptionalDependsOn: LibStub, LibAddonMenu-2.0, LibMsgWin-1.0, LibFoodDrinkBuff, LibAwesomeModule-1.0
 ## SavedVariables: AwesomeEvents
-##
-## This Add-on is not created by, affiliated with or sponsored by ZeniMax Media Inc. or its affiliates.
-## The Elder Scrolls® and related logos are registered trademarks or trademarks of ZeniMax Media Inc. in the United States and/or other countries.
-## All rights reserved
-##
-## You can read the full terms at https://account.elderscrollsonline.com/add-on-terms
+
+# This Add-on is not created by, affiliated with or sponsored by ZeniMax Media Inc. or its affiliates.
+# The Elder Scrolls® and related logos are registered trademarks or trademarks of ZeniMax Media Inc. in the United States and/or other countries.
+# All rights reserved
+#
+# You can read the full terms at https://account.elderscrollsonline.com/add-on-terms
 
 Libs/LibStub/LibStub.lua
 Libs/LibAddonMenu-2.0/LibAddonMenu-2.0.lua
@@ -25,8 +25,9 @@ Libs/LibAddonMenu-2.0/controls/dropdown.lua
 Libs/LibAddonMenu-2.0/controls/header.lua
 Libs/LibAddonMenu-2.0/controls/slider.lua
 Libs/LibAddonMenu-2.0/controls/texture.lua
-Libs/LibAwesomeModule-1.0/LibAwesomeModule-1.0.lua
 Libs/LibMsgWin-1.0/LibMsgWin-1.0.lua
+Libs/LibFoodDrinkBuff/LibFoodDrinkBuff.lua
+Libs/LibAwesomeModule-1.0/LibAwesomeModule-1.0.lua
 
 Language/strings.lua
 Language/$(language).lua

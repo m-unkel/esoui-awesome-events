@@ -3,7 +3,7 @@
 
   Author: @Ze_Mi <zemi@unive.de>
   Filename: AwesomeEvents.lua
-  Last Modified: 25.08.18 14:00
+  Last Modified: 02.09.18 20:30
 
   Copyright (c) 2018 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
@@ -15,10 +15,11 @@ Awesome_Events = {
     name = 'AwesomeEvents',
     panelName = 'AwesomeEventsOptions',
     title = 'Awesome Events',
-    version = '1.4-RC5',
+    version = '1.5-RC1',
 
     defaults = {
         isDefault = true,
+        showDisabledText = true,
         window = {
             left = GuiRoot:GetWidth()/2,
             top = 100,
@@ -370,6 +371,14 @@ function Awesome_Events:LoadModulesConfiguration()
             default = self.defaults.window.textColor[COLOR_AWEVS_WARNING],
         },
         {
+            type = 'checkbox',
+            name = GetString(SI_AWEVS_APPEARANCE_SHOWDISABLEDTEXT),
+            tooltip = GetString(SI_AWEVS_APPEARANCE_SHOWDISABLEDTEXT_HINT),
+            getFunc = function() return Awesome_Events.vars.showDisabledText end,
+            setFunc = function(newValue) Awesome_Events.vars.showDisabledText = newValue; Awesome_Events:UpdateViewSize(); end,
+            default = self.defaults.window.movable,
+        },
+        {
             type = 'header',
             name = '|c45D7F7' .. GetString(SI_AWEVS_IMPORT) .. '|r',
         },
@@ -666,21 +675,31 @@ function Awesome_Events:UpdateViewSize()
     -- show awesome events label if no other label active
     local child = AwesomeEventsView:GetChild(2)
     local text = child:GetText()
+    -- clear all mods disabled hint if labels exist
     if(totalHeight>0 and text~='')then
         child:SetText('')
         child:SetHeight(0)
+    -- show all mods disabled hint if no labels exist
     elseif(totalHeight==0)then
-        text = GetString(SI_AWEVS_NO_ACTIVE_MOD)
+        local numActiveMods = 0;
         for mod_id in libAM:module_pairs() do
             if(self.vars[mod_id].enabled)then
-                text = self.title
+                numActiveMods = numActiveMods+1
             end
         end
-        child:SetText(text)
-        child:SetWidth(0)
-        totalHeight = child:GetTextHeight()
-        child:SetHeight(totalHeight)
-        maxWidth = child:GetTextWidth()
+
+        -- zero mods enabled and hint enabled in settings ? -> show hint
+        if(numActiveMods == 0 and self.vars.showDisabledText)then
+            child:SetText(GetString(SI_AWEVS_ALL_MODS_DISABLED))
+            child:SetWidth(0)
+            totalHeight = child:GetTextHeight()
+            child:SetHeight(totalHeight)
+            maxWidth = child:GetTextWidth()
+        -- non zero mods enabled or text disabled in settings ? -> remove hint
+        elseif(text~='')then
+            child:SetText('')
+            child:SetHeight(0)
+        end
     end
 
     maxWidth = (maxWidth+20)

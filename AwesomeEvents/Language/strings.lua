@@ -3,7 +3,7 @@
 
   Author: @Ze_Mi <zemi@unive.de>
   Filename: strings.lua
-  Last Modified: 29.05.18 20:30
+  Last Modified: 02.09.18 17:30
 
   Copyright (c) 2018 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
@@ -13,7 +13,7 @@
 
 local strings = {
 	--main
-	SI_AWEVS_NO_ACTIVE_MOD="Enable an AwesomeEvents module",
+	SI_AWEVS_ALL_MODS_DISABLED="Enable an AwesomeEvents module",
 	SI_AWEVS_DESCRIPTION="With AwesomeEvents you can get notified about many interesting events while playing.\nSince there are many modules and ways you can customise your experience,\ndon't forget to scroll down the options page.\nIf you have any wishes, improvements, new translations or found a bug, don't hesitate to write me at <zemi@unive.de> or Ingame EU\PC @Ze_Mi :)",
 
 	--debug
@@ -43,6 +43,8 @@ local strings = {
 	SI_AWEVS_APPEARANCE_COLOR_HINT_HINT="Change the text color of hints.",
 	SI_AWEVS_APPEARANCE_COLOR_WARNING="Color (warning)",
 	SI_AWEVS_APPEARANCE_COLOR_WARNING_HINT="Change the text color of warnings.",
+	SI_AWEVS_APPEARANCE_SHOWDISABLEDTEXT="Hint: No module enabled",
+	SI_AWEVS_APPEARANCE_SHOWDISABLEDTEXT_HINT="Show a message in the awesome events window if all modules are disabled.",
 
 	--import
 	SI_AWEVS_IMPORT="Import Settings",
