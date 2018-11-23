@@ -33,8 +33,8 @@ Unter folgendem Link findest du die tolle Arbeit von CrazyDutchGuy: [URL="http:/
 [*]Hinweis über verbleibende Himmelsscherben bis zum nächsten Fertigkeitspunkt
 [*]Info zu freien Analyse-Slots für die Handwerksberufe oder verbleibender Wartezeit
 [*]Info zu möglichem Reittier-Training oder verbleibender Wartezeit
-[*]Info zu wartendem verhüllten Versorger oder verbleibender Wartezeit
-[*]Info zu verbleindenden Hehlerei- und Schiebe-Transaktionen
+[*]Neu: Info zu wartendem verhüllten Versorger oder verbleibender Wartezeit
+[*]Neu: Info zu verbleindenden Hehlerei- und Schiebe-Transaktionen
 [*]Neu: Info zu Bankplatz- und Rucksack-Auslastung
 [*]Neu: Info zu akutellem Vermögen (Gold) im Inventar und auf der Bank
 [*]Neu: Info zu Telvar Steinen und Schriebscheinen
@@ -96,8 +96,8 @@ If you are interested in the original version check out his great work at [URL="
 [*]Missing skyshards info
 [*]Crafts research timer / or available analysis slot info
 [*]Remaining mount training timer / or training available info
-[*]Shadowy supplier cooldown timer / or available info
-[*]Remaining thieve guild sells and launders info
+[*]New: Shadowy supplier cooldown timer / or available info
+[*]New: Remaining thieve guild sells and launders info
 [*]New: Backpack and bank usage info
 [*]New: Current money info
 [*]New: Telvar stones and writ vouchers info
