@@ -3,7 +3,7 @@
 
   Author: @Ze_Mi <zemi@unive.de>
   Filename: de.lua
-  Last Modified: 02.09.18 17:30
+  Last Modified: 23.11.18 13:30
 
   Copyright (c) 2018 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
@@ -175,6 +175,13 @@ SafeAddString(SI_AWEMOD_MOUNT_TIMER_HINT, "Zeigt den Trainings-Hinweis mit Count
 SafeAddString(SI_AWEMOD_REPAIRKITS, "Reparatur-Kits", 1)
 SafeAddString(SI_AWEMOD_REPAIRKITS_HINT, "Lass dir anzeigen, wie viele Reparatur-Kisten du im Rucksack hast.", 1)
 SafeAddString(SI_AWEMOD_REPAIRKITS_LABEL, "Reparatur-Kits|r: |t16:16:EsoUI/Art/icons/store_repairkit_002.dds|t <<1[Keine/1 Kiste/$d Kisten]>>", 1)
+
+--module-shadowysupplier
+SafeAddString(SI_AWEMOD_SHADOWYSUPPLIER, "Verhüllter Versorger (Passive Fähigkeit)", 1)
+SafeAddString(SI_AWEMOD_SHADOWYSUPPLIER_HINT, "Der verhüllte Versorger ist eine passive Fähigkeit aus der Fertigkeitslinie der dunklen Bruderschaft. Erhalte eine Benachrichtigung mit verbleibender Zeit, wann der nächste verhüllte Versorger zur Verfügung steht, oder ob er bereits auf dich wartet.", 1)
+SafeAddString(SI_AWEMOD_SHADOWYSUPPLIER_TIMER, "Wartezeit-Hinweis ab (Minuten)", 1)
+SafeAddString(SI_AWEMOD_SHADOWYSUPPLIER_TIMER_HINT, "Zeigt den Verhüllter-Versorger-Hinweis mit Countdown an, sobald der verhüllte Versorger in weniger als der hier festgelegten Minutenzahl wieder verfügbar ist.", 1)
+SafeAddString(SI_AWEMOD_SHADOWYSUPPLIER_AVAILABLE_LABEL, "Verfügbar", 1)
 
 --module-skills
 SafeAddString(SI_AWEMOD_SKILLS, "Attribute- und Fertigkeiten", 1)

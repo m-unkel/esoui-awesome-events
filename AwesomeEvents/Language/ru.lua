@@ -3,7 +3,7 @@
 
   Author: Memoraike
   Filename: ru.lua
-  Last Modified: 02.09.18 17:30
+  Last Modified: 23.11.18 13:30
 
   Copyright (c) 2018 by Martin Unkel and Memoraike
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
@@ -179,6 +179,13 @@ SafeAddString(SI_AWEMOD_MOUNT_TIMER_HINT, "Отображение таймера
 --SafeAddString(SI_AWEMOD_REPAIRKITS, "Repair Kits", 1)
 --SafeAddString(SI_AWEMOD_REPAIRKITS_HINT, "See how many repair kits you have in your inventory.", 1)
 --SafeAddString(SI_AWEMOD_REPAIRKITS_LABEL, "Repair Kits|r: |t16:16:EsoUI/Art/icons/store_repairkit_002.dds|t <<1[None/1 kit/$d kits]>>", 1)
+
+--module-shadowysupplier
+--SafeAddString(SI_AWEMOD_SHADOWYSUPPLIER, "Shadowy Supplier (Passive Skill)", 1)
+--SafeAddString(SI_AWEMOD_SHADOWYSUPPLIER_HINT, "The shadowy supplier is a passive skill from the dark brotherhoods skill line. Get an information and timer about availability of Dark Brotherhood`s Shadowy Supplier (passive ability).", 1)
+--SafeAddString(SI_AWEMOD_SHADOWYSUPPLIER_TIMER, "Supplier cooldown timer (minutes)", 1)
+--SafeAddString(SI_AWEMOD_SHADOWYSUPPLIER_TIMER_HINT, "Will show the cooldown timer if Shadowy Supplier is available within the number of minutes below.", 1)
+--SafeAddString(SI_AWEMOD_SHADOWYSUPPLIER_AVAILABLE_LABEL, "Available", 1)
 
 --module-skills
 SafeAddString(SI_AWEMOD_SKILLS, "Атрибуты и очки умений", 1)

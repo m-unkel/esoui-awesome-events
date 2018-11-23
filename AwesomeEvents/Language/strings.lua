@@ -3,7 +3,7 @@
 
   Author: @Ze_Mi <zemi@unive.de>
   Filename: strings.lua
-  Last Modified: 02.09.18 17:30
+  Last Modified: 23.11.18 13:30
 
   Copyright (c) 2018 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
@@ -175,6 +175,13 @@ local strings = {
 	SI_AWEMOD_REPAIRKITS="Repair Kits",
 	SI_AWEMOD_REPAIRKITS_HINT="See how many repair kits you have in your inventory.",
 	SI_AWEMOD_REPAIRKITS_LABEL="Repair Kits|r: |t16:16:EsoUI/Art/icons/store_repairkit_002.dds|t <<1[None/1 kit/$d kits]>>",
+
+	--module-shadowysupplier
+	SI_AWEMOD_SHADOWYSUPPLIER="Shadowy Supplier (Passive Skill)",
+	SI_AWEMOD_SHADOWYSUPPLIER_HINT="The shadowy supplier is a passive skill from the dark brotherhoods skill line. Get an information and timer about availability of Dark Brotherhood`s Shadowy Supplier (passive ability).",
+	SI_AWEMOD_SHADOWYSUPPLIER_TIMER="Supplier cooldown timer (minutes)",
+	SI_AWEMOD_SHADOWYSUPPLIER_TIMER_HINT="Will show the cooldown timer if Shadowy Supplier is available within the number of minutes below.",
+    SI_AWEMOD_SHADOWYSUPPLIER_AVAILABLE_LABEL="Available",
 
 	--module-skills
 	SI_AWEMOD_SKILLS="Attribute- & Skillpoints",

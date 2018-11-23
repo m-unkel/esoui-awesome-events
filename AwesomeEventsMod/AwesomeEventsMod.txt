@@ -1,8 +1,8 @@
 ﻿## Title: |cFFFFB0Awesome Module - Balancing|r
 ## Author: Ze_Mi
-## Description: This AddOn is a balancing module to show you how to add new modules and notifications to the AwesomeEvents AddOn. (Version: 1.5-RC1)
-## Version: 1.5-RC1
-## APIVersion: 100024
+## Description: This AddOn is a balancing module to show you how to add new modules and notifications to the AwesomeEvents AddOn. (Version: 1.6-RC1)
+## Version: 1.6-RC1
+## APIVersion: 100025
 ## OptionalDependsOn: LibStub, LibAwesomeModule-1.0
 
 # This Add-on is not created by, affiliated with or sponsored by ZeniMax Media Inc. or its affiliates.

@@ -3,6 +3,12 @@
 
 [COLOR="Green"][SIZE="5"][B]Changelog (DE)[/B][/SIZE][/COLOR]
 
+[B]1.6-RC1 (23.11.2018):[/B]
+[LIST]
+[*]Neu: Cooldown für den verhüllten Versorger (Passive Fertigkeit der dunklen Bruderschaft)
+[*]API Bump für Murkmire
+[/LIST]
+
 [B]1.5-RC1 (02.09.2018):[/B]
 [LIST]
 [*]Der Hinweis 'Aktiviere ein AwesomeEvents Modul' ist nun in den Einstellungen an- und abschaltbar
@@ -134,6 +140,12 @@
 
 
 [COLOR="Green"][SIZE="5"][B]Changelog (EN)[/B][/SIZE][/COLOR]
+
+[B]1.6-RC1 (23.11.2018):[/B]
+[LIST]
+[*]Neu: Cooldown for shadowy supplier (passive ability from dark brotherhoods skill line)
+[*]API Bump für Murkmire
+[/LIST]
 
 [B]1.5-RC1 (02.09.2018):[/B]
 [LIST]

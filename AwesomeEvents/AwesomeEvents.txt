@@ -1,8 +1,8 @@
 ﻿## Title: |cFFFFB0Awesome Events|r
 ## Author: Ze_Mi
-## Description: This addon adds many customizable notifications and information to your UI. (Version: 1.5-RC1)
-## Version: 1.5-RC1
-## APIVersion: 100024
+## Description: This addon adds many customizable notifications and information to your UI. (Version: 1.6-RC1)
+## Version: 1.6-RC1
+## APIVersion: 100025
 ## OptionalDependsOn: LibStub, LibAddonMenu-2.0, LibMsgWin-1.0, LibFoodDrinkBuff, LibAwesomeModule-1.0
 ## SavedVariables: AwesomeEvents
 
@@ -41,6 +41,7 @@ Modules/Inventory.lua
 Modules/Mails.lua
 Modules/Mount.lua
 Modules/RepairKits.lua
+Modules/ShadowySupplier.lua
 Modules/Skills.lua
 Modules/SkyShards.lua
 Modules/SoulGems.lua
