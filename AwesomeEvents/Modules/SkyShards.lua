@@ -1,39 +1,35 @@
 --[[
   This file is part of Awesome Events.
 
-  Author: @Ze_Mi <zemi@unive.de>
+  Author: Ze_Mi
   Filename: SkyShards.lua
-  Last Modified: 02.11.17 16:36
 
-  Copyright (c) 2017 by Martin Unkel
+  Copyright (c) 2017-2024 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
   Please read the README file for further information.
   ]]
 
-local libAM = LibStub('LibAwesomeModule-1.0')
-local MOD = libAM:New('skyshards')
+local AE = Awesome_Events
+local MOD = AE.module_factory({
+    id = 'skyshards',
+    title = GetString(SI_AWEMOD_SKYSHARDS),
+    hint = GetString(SI_AWEMOD_SKYSHARDS_HINT),
+    order = 25,
+    debug = false,
 
-MOD.title = GetString(SI_AWEMOD_SKYSHARDS)
-MOD.hint = GetString(SI_AWEMOD_SKYSHARDS_HINT)
-MOD.order = 25
-MOD.debug = false
-
--- OVERRIDES
-
--- USER SETTINGS
-
-MOD.options = {
-    shardsLeftInfo = {
-        type = 'slider',
-        name = GetString(SI_AWEMOD_SKYSHARDS_REMAINING),
-        tooltip = GetString(SI_AWEMOD_SKYSHARDS_REMAINING_HINT),
-        min  = 1,
-        max = 3,
-        default = 1,
-        order = 1,
-    },
-}
+    options = {
+        shardsLeftInfo = {
+            type = 'slider',
+            name = GetString(SI_AWEMOD_SKYSHARDS_REMAINING),
+            tooltip = GetString(SI_AWEMOD_SKYSHARDS_REMAINING_HINT),
+            min  = 1,
+            max = 3,
+            default = 1,
+            order = 1,
+        },
+    }
+})
 
 -- OVERRIDES
 
@@ -43,7 +39,7 @@ function MOD:Enable(options)
         shardsLeft = 0,
     }
     self:OnAchievementUpdate(0)
-    self.dataUpdated = true
+    self.hasUpdate = true
 end
 
 -- EVENT LISTENER
@@ -64,8 +60,8 @@ function MOD:OnAchievementUpdate(id)
     local shardsLeft = 3-GetNumSkyShards()
     if( shardsLeft ~= self.data.shardsLeft ) then
         self.data.shardsLeft = shardsLeft
-        self.dataUpdated = true
-        self:d(' => dataUpdated')
+        self.hasUpdate = true
+        self:d(' => hasUpdate')
     end
 end
 
@@ -75,8 +71,8 @@ function MOD:Update(options)
     self:d('Update')
     local labelText = ''
     if (self.data.shardsLeft <= options.shardsLeftInfo) then
-        local color = (self.data.shardsLeft == 1) and COLOR_AWEVS_AVAILABLE or COLOR_AWEVS_HINT
+        local color = (self.data.shardsLeft == 1) and AE.const.COLOR_AVAILABLE or AE.const.COLOR_HINT
         labelText = MOD.Colorize(color, GetString(SI_AWEMOD_SKYSHARDS_REMAINING_LABEL)) .. ': ' .. self.data.shardsLeft
     end
-    self.label:SetText(labelText)
+    self.labels[1]:SetText(labelText)
 end -- MOD:Update

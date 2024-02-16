@@ -1,49 +1,45 @@
 --[[
   This file is part of Awesome Events.
 
-  Author: @Ze_Mi <zemi@unive.de>
+  Author: Ze_Mi
   Filename: Durability.lua
-  Last Modified: 02.11.17 16:36
 
-  Copyright (c) 2017 by Martin Unkel
+  Copyright (c) 2017-2024 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
   Please read the README file for further information.
   ]]
 
-local libAM = LibStub('LibAwesomeModule-1.0')
-local MOD = libAM:New('durability')
+local AE = Awesome_Events
+local MOD = AE.module_factory({
+    id = 'durability',
+    title = GetString(SI_AWEMOD_DURABILITY),
+    hint = GetString(SI_AWEMOD_DURABILITY_HINT),
+    order = 50,
+    debug = false,
 
-MOD.title = GetString(SI_AWEMOD_DURABILITY)
-MOD.hint = GetString(SI_AWEMOD_DURABILITY_HINT)
-MOD.order = 50
-MOD.debug = false
-
--- OVERRIDES
-
--- USER SETTINGS
-
-MOD.options = {
-    valueLowInfo = {
-        type = 'slider',
-        name = GetString(SI_AWEMOD_DURABILITY_INFO),
-        tooltip = GetString(SI_AWEMOD_DURABILITY_INFO_HINT),
-        min  = 1,
-        max = 60,
-        default = 50,
-        order = 1,
-    },
-    valueLowWarning = {
-        type = 'slider',
-        name = GetString(SI_AWEMOD_DURABILITY_WARNING),
-        tooltip = GetString(SI_AWEMOD_DURABILITY_WARNING_HINT),
-        min  = 1,
-        max = 40,
-        default = 25,
-        order = 2,
-    },
-}
-MOD.fontSize = 4
+    fontSize = 4,
+    options = {
+        valueLowInfo = {
+            type = 'slider',
+            name = GetString(SI_AWEMOD_DURABILITY_INFO),
+            tooltip = GetString(SI_AWEMOD_DURABILITY_INFO_HINT),
+            min  = 1,
+            max = 60,
+            default = 50,
+            order = 1,
+        },
+        valueLowWarning = {
+            type = 'slider',
+            name = GetString(SI_AWEMOD_DURABILITY_WARNING),
+            tooltip = GetString(SI_AWEMOD_DURABILITY_WARNING_HINT),
+            min  = 1,
+            max = 40,
+            default = 25,
+            order = 2,
+        },
+    }
+})
 
 -- OVERRIDES
 
@@ -54,7 +50,7 @@ function MOD:Enable(options)
         repairCost = 0,
     }
     self:OnInventorySingleSlotUpdate(0)
-    self.dataUpdated = true
+    self.hasUpdate = true
 end
 
 -- EVENT LISTENER
@@ -119,8 +115,8 @@ function MOD:OnInventorySingleSlotUpdate(slotId)
             end
         end
         self.data.minimumValue = minDura
-        self.dataUpdated = true
-        self:d(' => dataUpdated')
+        self.hasUpdate = true
+        self:d(' => hasUpdate')
     end
 end
 
@@ -131,11 +127,11 @@ function MOD:Update(options)
     local labelText = ''
     if (self.data.minimumValue <= options.valueLowInfo) then
         if (self.data.minimumValue <= options.valueLowWarning) then
-            labelText = MOD.Colorize(COLOR_AWEVS_WARNING, GetString(SI_AWEMOD_DURABILITY_LABEL)) .. ': ' .. self.data.minimumValue .. '%'
+            labelText = MOD.Colorize(AE.const.COLOR_WARNING, GetString(SI_AWEMOD_DURABILITY_LABEL)) .. ': ' .. self.data.minimumValue .. '%'
         else
-            labelText = MOD.Colorize(COLOR_AWEVS_HINT, GetString(SI_AWEMOD_DURABILITY_LABEL)) .. ': ' .. self.data.minimumValue .. '%'
+            labelText = MOD.Colorize(AE.const.COLOR_HINT, GetString(SI_AWEMOD_DURABILITY_LABEL)) .. ': ' .. self.data.minimumValue .. '%'
         end
         labelText = labelText .. ' (' .. self.data.repairCost .. 'g)'
     end
-    self.label:SetText(labelText)
+    self.labels[1]:SetText(labelText)
 end -- MOD:Update

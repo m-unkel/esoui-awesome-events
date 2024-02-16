@@ -1,37 +1,35 @@
 --[[
   This file is part of Awesome Events.
 
-  Author: @Ze_Mi <zemi@unive.de>
+  Author: Ze_Mi
   Filename: Mount.lua
-  Last Modified: 02.11.17 16:36
 
-  Copyright (c) 2017 by Martin Unkel
+  Copyright (c) 2017-2024 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
   Please read the README file for further information.
   ]]
 
-local libAM = LibStub('LibAwesomeModule-1.0')
-local MOD = libAM:New('mount')
+local AE = Awesome_Events
+local MOD = AE.module_factory({
+    id = 'mount',
+    title = GetString(SI_AWEMOD_MOUNT),
+    hint = GetString(SI_AWEMOD_MOUNT_HINT),
+    order = 30,
+    debug = false,
 
-MOD.title = GetString(SI_AWEMOD_MOUNT)
-MOD.hint = GetString(SI_AWEMOD_MOUNT_HINT)
-MOD.order = 30
-MOD.debug = false
-
--- USER SETTINGS
-
-MOD.options = {
-    minutesLeftInfo = {
-        type = "slider",
-        name = GetString(SI_AWEMOD_MOUNT_TIMER),
-        tooltip = GetString(SI_AWEMOD_MOUNT_TIMER_HINT),
-        min  = 1,
-        max = 960,
-        default = 480,
-        order = 1,
-    },
-}
+    options = {
+        minutesLeftInfo = {
+            type = "slider",
+            name = GetString(SI_AWEMOD_MOUNT_TIMER),
+            tooltip = GetString(SI_AWEMOD_MOUNT_TIMER_HINT),
+            min  = 1,
+            max = 960,
+            default = 480,
+            order = 1,
+        },
+    }
+})
 
 -- OVERRIDES
 
@@ -42,7 +40,7 @@ function MOD:Enable(options)
         availableAt = 1,
         minutesLeft = 0
     }
-    self.dataUpdated = true
+    self.hasUpdate = true
 end
 
 -- EVENT LISTENER
@@ -54,7 +52,7 @@ end
 function MOD:GetEventListeners()
     return {
         {
-            eventCode = EVENT_AWESOME_MODULE_TIMER,
+            eventCode = AE.const.EVENT_TIMER,
             callback = function(eventCode, timestamp) return MOD:OnTimer(timestamp) end,
         },
         {
@@ -74,8 +72,8 @@ function MOD:OnTimer(timestamp)
             return
         else
             self.data.minutesLeft = math.ceil( GetDiffBetweenTimeStamps(self.data.availableAt, timestamp) / 60)
-            self.dataUpdated = true
-            self:d(' => dataUpdated')
+            self.hasUpdate = true
+            self:d(' => hasUpdate')
         end
     else
         self:StopTimer()
@@ -102,8 +100,8 @@ function MOD:OnRidingSkillImprovement()
         end
     end
 
-    self.dataUpdated = true
-    self:d(' => dataUpdated')
+    self.hasUpdate = true
+    self:d(' => hasUpdate')
 end -- MOD:OnFenceUpdate
 
 -- LABEL HANDLER
@@ -114,11 +112,11 @@ function MOD:Update(options)
     if (self.data.hasTrainableMount) then
         if(self.data.availableAt > 0) then
             if(self.data.minutesLeft <= options.minutesLeftInfo) then
-                labelText =MOD.Colorize(COLOR_AWEVS_HINT, GetString(SI_AWEMOD_MOUNT_TIMER_LABEL)) .. ': ' .. FormatTimeSeconds(60 * self.data.minutesLeft, TIME_FORMAT_STYLE_DESCRIPTIVE_SHORT , TIME_FORMAT_PRECISION_TWENTY_FOUR_HOUR , TIME_FORMAT_DIRECTION_NONE)
+                labelText =MOD.Colorize(AE.const.COLOR_HINT, GetString(SI_AWEMOD_MOUNT_TIMER_LABEL)) .. ': ' .. FormatTimeSeconds(60 * self.data.minutesLeft, TIME_FORMAT_STYLE_DESCRIPTIVE_SHORT , TIME_FORMAT_PRECISION_TWENTY_FOUR_HOUR , TIME_FORMAT_DIRECTION_NONE)
             end
         else
-            labelText = MOD.Colorize(COLOR_AWEVS_AVAILABLE, GetString(SI_AWEMOD_MOUNT_READY_LABEL))
+            labelText = MOD.Colorize(AE.const.COLOR_AVAILABLE, GetString(SI_AWEMOD_MOUNT_READY_LABEL))
         end
     end
-    self.label:SetText(labelText)
+    self.labels[1]:SetText(labelText)
 end -- MOD:Update

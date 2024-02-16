@@ -1,11 +1,10 @@
 --[[
   This file is part of Awesome Events.
 
-  Author: @Ze_Mi <zemi@unive.de>
+  Author: Ze_Mi
   Filename: de.lua
-  Last Modified: 23.11.18 13:30
 
-  Copyright (c) 2018 by Martin Unkel
+  Copyright (c) 2018-2024 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
   Please read the README file for further information.
@@ -13,8 +12,8 @@
   ]]
 
 --main
-SafeAddString(SI_AWEVS_ALL_MODS_DISABLED, "Aktiviere ein AwesomeEvents Modul", 1)
-SafeAddString(SI_AWEVS_DESCRIPTION, "Mit AwesomeEvents kannst du während dem Spielen über viele interessante Ergeignisse informiert werden.\nDa es viele Module und Anpassungsmöglichkeiten gibt,\nsolltest du dir kurz Zeit nehmen und einmal alle Optionen bis unten durch stöbern.\nBei Verbesserungsvorschlägen, Wünschen, neuen Übersetzungen oder Fehlern, wende dich einfach an <zemi@unive.de> oder über das Spiel EU\PC @Ze_Mi :)", 1)
+SafeAddString(SI_AWEVS_ALL_MODS_DISABLED, "Aktiviere ein Awesome_Events Modul", 1)
+SafeAddString(SI_AWEVS_DESCRIPTION, "Bleib im Spielgeschehen mit Awesome Events! Erhalte Benachrichtigungen über relevante Ereignisse direkt während des Spielens. Tauche ein und entdecke verschiedene Module sowie Anpassungsmöglichkeiten, um dein Spielerlebnis zu optimieren. Vergiss nicht, alle Optionen auf der Einstellungsseite zu erkunden. Dein Feedback ist unverzichtbar! Wenn du Vorschläge, Übersetzungsbeiträge oder Fehlermeldungen hast, zögere nicht, dich zu melden. Du erreichst mich über die Add-On-Seite unter https://esoui.com.", 1)
 
 --debug
 SafeAddString(SI_AWEVS_DEBUG_NO_EVENT_CALLBACKS, "Keine Callbacks, EventListener entfernt!", 1)
@@ -23,7 +22,7 @@ SafeAddString(SI_AWEVS_DEBUG_DISABLED, "|cD49682DEAKTIVIERT", 1)
 SafeAddString(SI_AWEVS_DEBUG_MODULE_EVENT_INVALID, "Ungültiges event Objekt!\nErwartet: event={eventCode=EVENT_...,callback=function() ... end}!\nBeide Schlüssel werden benötigt!\nIst:", 1)
 SafeAddString(SI_AWEVS_DEBUG_MODULE_OPTION_INVALID, "Ungültiges options Objekt!\nErwartet: option={type='',name='',tooltip='',default=...}!\nDiese Schlüssel werden mindestens benötigt!\nIst:", 1)
 SafeAddString(SI_AWEVS_DEBUG_MODULE_NOT_FOUND, "Modul nicht gefunden!", 1)
-SafeAddString(SI_AWEVS_DEBUG_MODULE_NO_TIMER, "Diese modul reagiert nicht auf das Event EVENT_AWESOME_MODULE_TIMER oder du versuchst eine Timer Funktion innerhalb der Enable Funktion aufzurufen, sorry das geht leider nicht. Der timer kann nicht genutzt werden.", 1)
+SafeAddString(SI_AWEVS_DEBUG_MODULE_NO_TIMER, "Diese modul reagiert nicht auf das Event EVENT_TIMER oder du versuchst eine Timer Funktion innerhalb der Enable Funktion aufzurufen, sorry das geht leider nicht. Der timer kann nicht genutzt werden.", 1)
 SafeAddString(SI_AWEVS_DEBUG_COMMAND_USAGE, "Befehl: /aedebug mod_id (on\off)", 1)
 
 --appearance
@@ -36,7 +35,9 @@ SafeAddString(SI_AWEVS_APPEARANCE_TEXTALIGN_LEFT, "Linksbündig", 1)
 SafeAddString(SI_AWEVS_APPEARANCE_TEXTALIGN_CENTER,"Zentriert", 1)
 SafeAddString(SI_AWEVS_APPEARANCE_TEXTALIGN_RIGHT, "Rechtsbündig", 1)
 SafeAddString(SI_AWEVS_APPEARANCE_UISCALE, "Fenster Größe / Skalierung", 1)
-SafeAddString(SI_AWEVS_APPEARANCE_UISCALE_HINT, "Vergrößere oder verkleinere die Darstellung des Fensters.", 1)
+SafeAddString(SI_AWEVS_APPEARANCE_UISCALE_HINT, "Vergrößere oder verkleinere die Darstellung des Fensters.",1)
+SafeAddString(SI_AWEVS_APPEARANCE_BACKGROUND_ALPHA, "Hintergrund-Transparenz", 1)
+SafeAddString(SI_AWEVS_APPEARANCE_BACKGROUND_ALPHA_HINT, "Lege fest wie durchsichtig der Hintergrund ist.",1)
 SafeAddString(SI_AWEVS_APPEARANCE_COLOR_AVAILABLE,"Farbe von Verfügbarkeiten", 1)
 SafeAddString(SI_AWEVS_APPEARANCE_COLOR_AVAILABLE_HINT, "Ändere die Textfarbe von Verfügbarkeits-Meldungen.", 1)
 SafeAddString(SI_AWEVS_APPEARANCE_COLOR_HINT,"Farbe von Hinweisen", 1)
@@ -58,9 +59,9 @@ SafeAddString(SI_AWEMOD_SHOW, "Anzeigen", 1)
 SafeAddString(SI_AWEMOD_SHOW_HINT, "Aktiviere oder deaktiviere alle Benachrichtigungen dieses Moduls", 1)
 SafeAddString(SI_AWEMOD_SPACING_POSITION, "Abstand (Positionierung)", 1)
 SafeAddString(SI_AWEMOD_SPACING_POSITION_HINT, "Wähle die Positionierung des Abstands zwischen Nachrichten dieses Moduls und anderen Benachrichtigungen.", 1)
-SafeAddString(SI_AWEMOD_SPACING_BOTTOM, "Oben", 1)
-SafeAddString(SI_AWEMOD_SPACING_BOTH, "Oben und unten", 1)
-SafeAddString(SI_AWEMOD_SPACING_TOP, "Unten", 1)
+SafeAddString(SI_AWEMOD_SPACING_BOTTOM, "Unten", 1)
+SafeAddString(SI_AWEMOD_SPACING_BOTH, "Oben und Unten", 1)
+SafeAddString(SI_AWEMOD_SPACING_TOP, "Oben", 1)
 SafeAddString(SI_AWEMOD_SPACING, "Abstand (Größe)", 1)
 SafeAddString(SI_AWEMOD_SPACING_HINT, "Wähle den Abstand zwischen Nachrichten dieses Moduls und anderen Benachrichtigungen.", 1)
 SafeAddString(SI_AWEMOD_FONTSIZE, "Schriftgröße", 1)

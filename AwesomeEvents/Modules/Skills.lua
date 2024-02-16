@@ -1,27 +1,25 @@
 --[[
   This file is part of Awesome Events.
 
-  Author: @Ze_Mi <zemi@unive.de>
+  Author: Ze_Mi
   Filename: Skills.lua
-  Last Modified: 02.11.17 16:36
 
-  Copyright (c) 2017 by Martin Unkel
+  Copyright (c) 2017-2024 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
   Please read the README file for further information.
   ]]
 
-local libAM = LibStub('LibAwesomeModule-1.0')
-local MOD = libAM:New('skills')
-
-MOD.title = GetString(SI_AWEMOD_SKILLS)
-MOD.hint = GetString(SI_AWEMOD_SKILLS_HINT)
-MOD.order = 20
-MOD.debug = false
-
 local CHAMPION_ATTRIBUTES = { ATTRIBUTE_HEALTH, ATTRIBUTE_STAMINA, ATTRIBUTE_MAGICKA }
 
--- USER SETTINGS
+local AE = Awesome_Events
+local MOD = AE.module_factory({
+    id = 'skills',
+    title = GetString(SI_AWEMOD_SKILLS),
+    hint = GetString(SI_AWEMOD_SKILLS_HINT),
+    order = 20,
+    debug = false
+})
 
 -- OVERRIDES
 
@@ -34,7 +32,7 @@ function MOD:Enable(options)
         hasUnspentPoints = false,
     }
     self:OnPointsChanged(0)
-    self.dataUpdated = true
+    self.hasUpdate = true
 end
 
 -- EVENT LISTENER
@@ -48,7 +46,7 @@ function MOD:GetEventListeners()
             eventCode = EVENT_SKILL_POINTS_CHANGED,
             callback = function(eventCode, pointsBefore, pointsNow, partialPointsBefore, partialPointsNow)
                 self:d("EVENT_SKILL_POINTS_CHANGED: ", pointsBefore .. '=>' .. pointsNow, partialPointsBefore .. '=>' .. partialPointsNow)
-                MOD:OnPointsChanged(pointsNow-pointsBefore)
+                MOD:OnPointsChanged(pointsNow - pointsBefore)
             end
         },
         {
@@ -65,29 +63,37 @@ function MOD:GetEventListeners()
                 MOD:OnPointsChanged(0)
             end
         }
-}
+    }
 end -- MOD:GetEventListeners
 
 -- EVENT HANDLER
 
 function MOD:OnPointsChanged(numChanged)
     self:d('OnSkillPointsChanged ' .. numChanged)
-    local attributes,skills,championPoints = GetAttributeUnspentPoints(),GetAvailableSkillPoints(),GetPlayerChampionPointsEarned()
+    local attributes, skills, championPoints = GetAttributeUnspentPoints(), GetAvailableSkillPoints(), GetPlayerChampionPointsEarned()
 
-    for i=1,GetNumChampionDisciplines() do
-        championPoints = championPoints - GetNumPointsSpentInChampionDiscipline(i)
+    local spentCP = 0
+    for i = 1, GetNumChampionDisciplines() do
+        for skill = 1, GetNumChampionDisciplineSkills(i) do
+            local id = GetChampionSkillId(i, skill)
+            spentCP = spentCP + GetNumPointsSpentOnChampionSkill(id)
+        end
     end
-    self:d(attributes,skills,championPoints)
-    if(championPoints<0) then championPoints = 0 end
+    championPoints = championPoints - spentCP
 
-    if( attributes ~= self.data.attributes or championPoints ~= self.data.championPoints or skills ~= self.data.skills) then
+    self:d(attributes, skills, championPoints)
+    if (championPoints < 0) then
+        championPoints = 0
+    end
+
+    if (attributes ~= self.data.attributes or championPoints ~= self.data.championPoints or skills ~= self.data.skills) then
         self.data.attributes = attributes
         self.data.championPoints = championPoints
         self.data.skills = skills
-        self.data.hasUnspentPoints = ( attributes + championPoints + skills ) > 0
+        self.data.hasUnspentPoints = (attributes + championPoints + skills) > 0
 
-        self.dataUpdated = true
-        self:d(' => dataUpdated')
+        self.hasUpdate = true
+        self:d(' => hasUpdate')
     end
 end -- MOD:OnPointsChanged
 
@@ -98,16 +104,20 @@ function MOD:Update(options)
     local labelText = ''
     if (self.data.hasUnspentPoints) then
         if (self.data.attributes > 0) then
-            labelText = MOD.Colorize(COLOR_AWEVS_AVAILABLE, GetString(SI_AWEMOD_SKILLS_ATTRIBUTES_LABEL)) .. ': ' .. self.data.attributes
+            labelText = MOD.Colorize(AE.const.COLOR_AVAILABLE, GetString(SI_AWEMOD_SKILLS_ATTRIBUTES_LABEL)) .. ': ' .. self.data.attributes
         end
         if (self.data.skills > 0) then
-            if(labelText~='')then labelText = labelText .. MOD.Colorize(COLOR_AWEVS_AVAILABLE, ' || ') end
-            labelText = labelText .. MOD.Colorize(COLOR_AWEVS_AVAILABLE, GetString(SI_AWEMOD_SKILLS_SKILLS_LABEL)) .. ': ' .. self.data.skills
+            if (labelText ~= '') then
+                labelText = labelText .. MOD.Colorize(AE.const.COLOR_AVAILABLE, ' || ')
+            end
+            labelText = labelText .. MOD.Colorize(AE.const.COLOR_AVAILABLE, GetString(SI_AWEMOD_SKILLS_SKILLS_LABEL)) .. ': ' .. self.data.skills
         end
         if (self.data.championPoints > 0) then
-            if(labelText~='')then labelText = labelText .. MOD.Colorize(COLOR_AWEVS_AVAILABLE, ' || ') end
-            labelText = labelText .. MOD.Colorize(COLOR_AWEVS_AVAILABLE, GetString(SI_AWEMOD_SKILLS_CHAMPIONPOINTS_LABEL)) .. ': ' .. self.data.championPoints
+            if (labelText ~= '') then
+                labelText = labelText .. MOD.Colorize(AE.const.COLOR_AVAILABLE, ' || ')
+            end
+            labelText = labelText .. MOD.Colorize(AE.const.COLOR_AVAILABLE, GetString(SI_AWEMOD_SKILLS_CHAMPIONPOINTS_LABEL)) .. ': ' .. self.data.championPoints
         end
     end
-    self.label:SetText(labelText)
+    self.labels[1]:SetText(labelText)
 end -- MOD:Update

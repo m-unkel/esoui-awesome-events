@@ -1,23 +1,23 @@
 --[[
   This file is part of Awesome Events.
 
-  Author: @Ze_Mi <zemi@unive.de>
+  Author: Ze_Mi
   Filename: RepairKits.lua
-  Last Modified: 02.11.17 16:36
 
-  Copyright (c) 2017 by Martin Unkel
+  Copyright (c) 2017-2024 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
   Please read the README file for further information.
   ]]
 
-local libAM = LibStub('LibAwesomeModule-1.0')
-local MOD = libAM:New('repairkits')
-
-MOD.title = GetString(SI_AWEMOD_REPAIRKITS)
-MOD.hint = GetString(SI_AWEMOD_REPAIRKITS_HINT)
-MOD.order = 65
-MOD.debug = false
+local AE = Awesome_Events
+local MOD = AE.module_factory({
+    id = 'repairkits',
+    title = GetString(SI_AWEMOD_REPAIRKITS),
+    hint = GetString(SI_AWEMOD_REPAIRKITS_HINT),
+    order = 65,
+    debug = false
+})
 
 -- MOD FUNCTIONS
 
@@ -36,10 +36,13 @@ end
 
 function MOD:Enable(options)
     self:d('Enable (in debug-mode)')
-    self.data = { count = 0, details = {} }
+    self.data = {
+        count = 0,
+        details = {}
+    }
     self:ScanBag(BAG_BACKPACK)
     self:ScanBag(BAG_VIRTUAL)
-    self.dataUpdated = true
+    self.hasUpdate = true
 end -- MOD:Enable
 
 -- EVENT LISTENER
@@ -52,7 +55,7 @@ function MOD:GetEventListeners()
                 if( (bagId == BAG_BACKPACK or bagId == BAG_VIRTUAL) and IsItemRepairKit(bagId,slotId))then
                     self:d('EVENT_INVENTORY_SINGLE_SLOT_UPDATE',self.data.count,stackCountChange)
                     self.data.count = self.data.count + stackCountChange
-                    self.dataUpdated = true
+                    self.hasUpdate = true
                 end
             end
         },
@@ -66,5 +69,5 @@ end -- MOD:GetEventListeners
 
 function MOD:Update(options)
     self:d('Update')
-    self.label:SetText(MOD.Colorize(COLOR_AWEVS_AVAILABLE, zo_strformat(SI_AWEMOD_REPAIRKITS_LABEL, self.data.count)))
+    self.labels[1]:SetText(MOD.Colorize(AE.const.COLOR_AVAILABLE, zo_strformat(SI_AWEMOD_REPAIRKITS_LABEL, self.data.count)))
 end -- MOD:Update

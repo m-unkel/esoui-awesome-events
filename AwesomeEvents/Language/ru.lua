@@ -3,9 +3,8 @@
 
   Author: Memoraike
   Filename: ru.lua
-  Last Modified: 23.11.18 13:30
 
-  Copyright (c) 2018 by Martin Unkel and Memoraike
+  Copyright (c) 2018-2024 by Martin Unkel and Memoraike
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
   Please read the README file for further information.
@@ -18,7 +17,7 @@
 
 --main
 SafeAddString(SI_AWEVS_ALL_MODS_DISABLED, "Нет активных модулей", 1)
-SafeAddString(SI_AWEVS_DESCRIPTION, "С AwesomeEvents Вы можете получить уведомления о множестве интересных событий во время игры,\nтак как здесь множество модулей и путей для настройки под Ваш стиль игры, не забудьте просмотреть все настройки.\nЕсли у Вас есть какие-либо пожелания, улучшения, переводы или же заметили ошибку, то не стесняйтесь и пишите автору <zemi@unive.de> или же в игре EU\PC @Ze_Mi :)", 1)
+SafeAddString(SI_AWEVS_DESCRIPTION, "Оставайся в курсе событий с Awesome Events! Получай уведомления о различных игровых событиях прямо во время игры. Исследуй различные модули и настройки, чтобы настроить игровой процесс под себя. Не забудь заглянуть во все доступные опции на странице настроек. Твои отзывы очень важны! Если у тебя есть предложения, вклад в переводы или сообщения об ошибках, не стесняйся обращаться. Связаться со мной можно через страницу дополнений на https://esoui.com.", 1)
 
 --debug
 SafeAddString(SI_AWEVS_DEBUG_NO_EVENT_CALLBACKS, "Нет обратных вызовов, прослушиватель событий удален!", 1)
@@ -27,7 +26,7 @@ SafeAddString(SI_AWEVS_DEBUG_DISABLED, "|cD49682Отключено", 1)
 SafeAddString(SI_AWEVS_DEBUG_MODULE_EVENT_INVALID, "Ошибочный объект события!\nОжидалось: event={eventCode=EVENT_...,callback=function() ... end}!\nЭти ключи обязательны!\nКлючи:", 1)
 SafeAddString(SI_AWEVS_DEBUG_MODULE_OPTION_INVALID, "Ошибочный объект опций!\nОжидалось: option={type='',name='',tooltip='',default=...}!\nЭти ключи обязательны!\nКлючи:", 1)
 SafeAddString(SI_AWEVS_DEBUG_MODULE_NOT_FOUND, "Модуль не найден!", 1)
-SafeAddString(SI_AWEVS_DEBUG_MODULE_NO_TIMER, "Этот модуль не прослушивает событие EVENT_AWESOME_MODULE_TIMER или Вы пытаетесь вызвать функцию таймера в Enable функции, извините, это не возможно. Таймер не может быть использован.", 1)
+SafeAddString(SI_AWEVS_DEBUG_MODULE_NO_TIMER, "Этот модуль не прослушивает событие EVENT_TIMER или Вы пытаетесь вызвать функцию таймера в Enable функции, извините, это не возможно. Таймер не может быть использован.", 1)
 SafeAddString(SI_AWEVS_DEBUG_COMMAND_USAGE, "Используйте: /aedebug mod_id (on\off)", 1)
 
 --appearance
@@ -41,6 +40,8 @@ SafeAddString(SI_AWEVS_APPEARANCE_TEXTALIGN_CENTER,"По центру", 1)
 SafeAddString(SI_AWEVS_APPEARANCE_TEXTALIGN_RIGHT, "По правому краю", 1)
 SafeAddString(SI_AWEVS_APPEARANCE_UISCALE, "Масштаб окна", 1)
 SafeAddString(SI_AWEVS_APPEARANCE_UISCALE_HINT, "Масшатабирует окно и его содержимое.", 1)
+SafeAddString(SI_AWEVS_APPEARANCE_BACKGROUND_ALPHA, "Прозрачность фона", 1)
+SafeAddString(SI_AWEVS_APPEARANCE_BACKGROUND_ALPHA_HINT, "Задайте степень прозрачности фона.",1)
 SafeAddString(SI_AWEVS_APPEARANCE_COLOR_AVAILABLE,"Цвет доступности", 1)
 SafeAddString(SI_AWEVS_APPEARANCE_COLOR_AVAILABLE_HINT, "Изменить цвет текста сообщений о доступности(?).", 1)
 SafeAddString(SI_AWEVS_APPEARANCE_COLOR_HINT,"Цвет уведомлений", 1)
@@ -62,9 +63,9 @@ SafeAddString(SI_AWEMOD_SHOW, "Отображать", 1)
 SafeAddString(SI_AWEMOD_SHOW_HINT, "Показывать или скрывать все уведомления этого молуля", 1)
 SafeAddString(SI_AWEMOD_SPACING_POSITION, "Расположение отступа", 1)
 SafeAddString(SI_AWEMOD_SPACING_POSITION_HINT, "Установить расположение отступа между уведомлением модуля и другими уведомлениями.", 1)
-SafeAddString(SI_AWEMOD_SPACING_BOTTOM, "Сверху", 1)
+SafeAddString(SI_AWEMOD_SPACING_BOTTOM, "Снизу", 1)
 SafeAddString(SI_AWEMOD_SPACING_BOTH, "Сверху и снизу", 1)
-SafeAddString(SI_AWEMOD_SPACING_TOP, "Снизу", 1)
+SafeAddString(SI_AWEMOD_SPACING_TOP, "Сверху", 1)
 SafeAddString(SI_AWEMOD_SPACING, "Отступ", 1)
 SafeAddString(SI_AWEMOD_SPACING_HINT, "Установить отступ между уведомлением модуля и другими уведомлениями.", 1)
 SafeAddString(SI_AWEMOD_FONTSIZE, "Размер шрифта", 1)

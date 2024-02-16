@@ -1,23 +1,23 @@
 --[[
   This file is part of Awesome Events.
 
-  Author: @Ze_Mi <zemi@unive.de>
+  Author: Ze_Mi
   Filename: SoulGems.lua
-  Last Modified: 02.11.17 16:36
 
-  Copyright (c) 2017 by Martin Unkel
+  Copyright (c) 2017-2024 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
   Please read the README file for further information.
   ]]
 
-local libAM = LibStub('LibAwesomeModule-1.0')
-local MOD = libAM:New('soulgems')
-
-MOD.title = GetString(SI_AWEMOD_SOULGEMS)
-MOD.hint = GetString(SI_AWEMOD_SOULGEMS_HINT)
-MOD.order = 65
-MOD.debug = false
+local AE = Awesome_Events
+local MOD = AE.module_factory({
+    id = 'soulgems',
+    title = GetString(SI_AWEMOD_SOULGEMS),
+    hint = GetString(SI_AWEMOD_SOULGEMS_HINT),
+    order = 65,
+    debug = false
+})
 
 -- MOD FUNCTIONS
 
@@ -44,7 +44,7 @@ function MOD:Enable(options)
         numEmpty = 0,
     }
     self:OnChangeSoulGemCount()
-    self.dataUpdated = true
+    self.hasUpdate = true
 end -- MOD:Enable
 
 -- EVENT LISTENER
@@ -74,8 +74,8 @@ function MOD:OnChangeSoulGemCount()
     if(self.data.numFilled ~= filled or self.data.numEmpty ~= empty)then
         self.data.numFilled = filled
         self.data.numEmpty = empty
-        self.dataUpdated = true
-        self:d(' => dataUpdated')
+        self.hasUpdate = true
+        self:d(' => hasUpdate')
     end
 
 end -- MOD:OnChangeSoulGemCount
@@ -85,5 +85,5 @@ end -- MOD:OnChangeSoulGemCount
 
 function MOD:Update(options)
     self:d('Update')
-    self.label:SetText(MOD.Colorize(COLOR_AWEVS_AVAILABLE, zo_strformat(SI_AWEMOD_SOULGEMS_LABEL, self.data.numFilled, self.data.numEmpty)))
+    self.labels[1]:SetText(MOD.Colorize(AE.const.COLOR_AVAILABLE, zo_strformat(SI_AWEMOD_SOULGEMS_LABEL, self.data.numFilled, self.data.numEmpty)))
 end -- MOD:Update

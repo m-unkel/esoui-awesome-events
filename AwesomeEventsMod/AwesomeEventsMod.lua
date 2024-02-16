@@ -1,53 +1,44 @@
 --[[
-  This file is part of Awesome Events.
+  This file is part of Awesome Events Mod.
 
-  Author: @Ze_Mi <zemi@unive.de>
+  Author: Ze_Mi
   Filename: AwesomeEventsMod.lua
-  Last Modified: 25.08.18 10:25
 
-  Copyright (c) 2018 by Martin Unkel
+  Copyright (c) 2018-2024 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
   Please read the README file for further information.
   ]]
 
-local libAM = LibStub('LibAwesomeModule-1.0')
-local MOD = libAM:New('balancing')
+local AE = Awesome_Events
 
--- title: header in settings menu
-MOD.title = GetString(SI_AWEMOD_BALANCING)
--- hint: tootltip at module show/hide toggle in settings menu
-MOD.hint = GetString(SI_AWEMOD_BALANCING_HINT)
--- order: default in the middle order = 40, at bottom ORDER_AWESOME_MODULE_PUSH_NOTIFICATION = 75
-MOD.order = ORDER_AWESOME_MODULE_PUSH_NOTIFICATION
--- enable debugging ingame via /aedebug balancing on
--- disable debugging ingame via /aedebug balancing off
--- show debugging state ingame via /aedebug balancing
-MOD.debug = false
+local MOD = AE.module_factory({
+    id = 'balancing',
+    title = GetString(SI_AWEMOD_BALANCING),
+    hint = GetString(SI_AWEMOD_BALANCING_HINT),
+    order = AE.const.ORDER_AWESOME_MODULE_PUSH_NOTIFICATION,
+    debug = false,
 
-
--- USER SETTINGS
-
-MOD.options = {
-    showSessionTotal = {
-        type = 'checkbox',
-        name = GetString(SI_AWEMOD_BALANCING_TOTAL),
-        tooltip = GetString(SI_AWEMOD_BALANCING_TOTAL_HINT),
-        default = true,
-        order = 1,
-    },
-    secondsFadeOut = {
-        type = 'slider',
-        name = GetString(SI_AWEMOD_BALANCING_TIMER),
-        tooltip = GetString(SI_AWEMOD_BALANCING_TIMER_HINT),
-        min  = 10,
-        max = 120,
-        default = 30,
-        order = 2,
-    },
-}
--- fontSie: default = 1, max = 5
-MOD.fontSize = 5
+    fontSize = 5,
+    options = {
+        showSessionTotal = {
+            type = 'checkbox',
+            name = GetString(SI_AWEMOD_BALANCING_TOTAL),
+            tooltip = GetString(SI_AWEMOD_BALANCING_TOTAL_HINT),
+            default = true,
+            order = 1,
+        },
+        secondsFadeOut = {
+            type = 'slider',
+            name = GetString(SI_AWEMOD_BALANCING_TIMER),
+            tooltip = GetString(SI_AWEMOD_BALANCING_TIMER_HINT),
+            min  = 10,
+            max = 120,
+            default = 30,
+            order = 2,
+        },
+    }
+})
 
 -- OVERRIDES
 
@@ -74,7 +65,7 @@ end
 function MOD:GetEventListeners()
     return {
         {
-            eventCode = EVENT_AWESOME_MODULE_TIMER,
+            eventCode = AE.const.EVENT_TIMER,
             callback = function(eventCode, timestamp) return MOD:OnTimer(timestamp) end,
         },
         {
@@ -150,5 +141,5 @@ function MOD:Update(options)
         labelText = MOD.Colorize(color, GetString(SI_AWEMOD_BALANCING_LABEL)) .. ': ' ..bilance
     end
 
-    self.label:SetText(labelText)
+    self.labels[1]:SetText(labelText)
 end -- MOD:Update

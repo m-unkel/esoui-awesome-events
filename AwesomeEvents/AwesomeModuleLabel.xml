@@ -1,5 +1,0 @@
-<GuiXml>
-    <Controls>
-        <Label name="AwesomeModuleLabel" virtual="true" font="ZoFontWinH1" color="FFFFFF" inheritAlpha="true" verticalAlignment="TOP"/>
-    </Controls>
-</GuiXml>

@@ -1,49 +1,45 @@
 --[[
   This file is part of Awesome Events.
 
-  Author: @Ze_Mi <zemi@unive.de>
+  Author: Ze_Mi
   Filename: WeaponCharge.lua
-  Last Modified: 02.11.17 16:36
 
-  Copyright (c) 2017 by Martin Unkel
+  Copyright (c) 2017-2024 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
   Please read the README file for further information.
   ]]
 
-local libAM = LibStub('LibAwesomeModule-1.0')
-local MOD = libAM:New('weaponcharge')
+local AE = Awesome_Events
+local MOD = AE.module_factory({
+    id = 'weaponcharge',
+    title = GetString(SI_AWEMOD_WEAPONCHARGE),
+    hint = GetString(SI_AWEMOD_WEAPONCHARGE_HINT),
+    order = 55,
+    debug = false,
 
-MOD.title = GetString(SI_AWEMOD_WEAPONCHARGE)
-MOD.hint = GetString(SI_AWEMOD_WEAPONCHARGE_HINT)
-MOD.order = 55
-MOD.debug = false
-
--- OVERRIDES
-
--- USER SETTINGS
-
-MOD.options = {
-    valueLowInfo = {
-        type = 'slider',
-        name = GetString(SI_AWEMOD_WEAPONCHARGE_INFO),
-        tooltip = GetString(SI_AWEMOD_WEAPONCHARGE_INFO_HINT),
-        min  = 1,
-        max = 60,
-        default = 50,
-        order = 1,
-    },
-    valueLowWarning = {
-        type = 'slider',
-        name = GetString(SI_AWEMOD_WEAPONCHARGE_WARNING),
-        tooltip = GetString(SI_AWEMOD_WEAPONCHARGE_WARNING_HINT),
-        min  = 1,
-        max = 40,
-        default = 25,
-        order = 2,
-    },
-}
-MOD.fontSize = 4
+    fontSize = 4,
+    options = {
+        valueLowInfo = {
+            type = 'slider',
+            name = GetString(SI_AWEMOD_WEAPONCHARGE_INFO),
+            tooltip = GetString(SI_AWEMOD_WEAPONCHARGE_INFO_HINT),
+            min = 1,
+            max = 60,
+            default = 50,
+            order = 1,
+        },
+        valueLowWarning = {
+            type = 'slider',
+            name = GetString(SI_AWEMOD_WEAPONCHARGE_WARNING),
+            tooltip = GetString(SI_AWEMOD_WEAPONCHARGE_WARNING_HINT),
+            min = 1,
+            max = 40,
+            default = 25,
+            order = 2,
+        },
+    }
+})
 
 -- OVERRIDES
 
@@ -54,7 +50,7 @@ function MOD:Enable(options)
         slotId = 0,
     }
     self:OnInventorySingleSlotUpdate(0)
-    self.dataUpdated = true
+    self.hasUpdate = true
 end
 
 -- EVENT LISTENER
@@ -102,8 +98,8 @@ function MOD:OnInventorySingleSlotUpdate(slotId)
 		if(relativeCharge <= self.data.minimumValue) then
 			self.data.slotId = slotId
 			self.data.minimumValue = relativeCharge
-			self.dataUpdated = true
-			self:d(' => dataUpdated (single)')
+			self.hasUpdate = true
+			self:d(' => hasUpdate (single)')
 			return
 		else
 			slotId = 0
@@ -133,8 +129,8 @@ function MOD:OnInventorySingleSlotUpdate(slotId)
     if(lowestChargeSlotId ~= self.data.slotId or lowestRelativeCharge ~= self.data.minimumValue)then
         self.data.minimumValue = lowestRelativeCharge
         self.data.slotId = lowestChargeSlotId
-        self.dataUpdated = true
-        self:d(' => dataUpdated')
+        self.hasUpdate = true
+        self:d(' => hasUpdate')
     end
 end -- MOD:OnInventorySingleSlotUpdate
 
@@ -145,8 +141,8 @@ function MOD:Update(options)
     local labelText = ''
     if (self.data.minimumValue <= options.valueLowInfo) then
 		local weaponSet = (self.data.slotId<6) and '1' or '2'
-		local color = (self.data.minimumValue <= options.valueLowWarning) and COLOR_AWEVS_WARNING or COLOR_AWEVS_HINT
+		local color = (self.data.minimumValue <= options.valueLowWarning) and AE.const.COLOR_WARNING or AE.const.COLOR_HINT
         labelText = MOD.Colorize(color, zo_strformat(SI_TOOLTIP_ITEM_NAME, GetItemName(BAG_WORN, self.data.slotId))) .. ': ' .. self.data.minimumValue .. '%' .. ' (' .. weaponSet .. '. ' .. GetString(SI_AWEMOD_WEAPONCHARGE_SET_LABEL) .. ')'
     end
-    self.label:SetText(labelText)
+    self.labels[1]:SetText(labelText)
 end -- MOD:Update

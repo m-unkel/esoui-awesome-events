@@ -3,9 +3,8 @@
 
   Author: Memoraike
   Filename: ru.lua
-  Last Modified: 25.06.17 15:13
 
-  Copyright (c) 2017 by Memoraike
+  Copyright (c) 2017-2024 by Memoraike
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
   Please read the README file for further information.

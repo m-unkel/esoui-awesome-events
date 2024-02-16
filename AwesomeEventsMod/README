@@ -4,38 +4,17 @@
 
 --[ EN ]--
 
-This AddOn was made by Ze_Mi <zemi@unive.de>.
+This AddOn was made by Ze_Mi.
 Updates at: http://www.esoui.com/downloads/info1739-AwesomeEvents.html
 
 This is an example AddOn Module to show how to add custom notifications to AwesomeEvents
 
 --[ DE ]--
 
-Dieses AddOn wurde erstellt von Ze_Mi <zemi@unive.de>.
+Dieses AddOn wurde erstellt von Ze_Mi.
 Updates unter: http://www.esoui.com/downloads/info1739-AwesomeEvents.html
 
 Dies ist ein Beispiel für eine AddOn Modul, um zu zeigen wie man eigene Benachrichtigungen zu AwesomeEvents hinzufügt.
-
---------------------------
---   LibAwesomeModule   --
---------------------------
-
---[ EN ]--
-
-This Library was made by Ze_Mi <zemi@unive.de>.
-
-Hereby I introduce LibAwesomeModule-1.0, a library that allows you to easily add new modules and notifications to AwesomeEvents.
-If you are interested in writing new modules, please have a look inside the Module folder of this addon.
-You don't have to care about layout and settings stuff, just write the minimal necessary code with maximum useability.
-
---[ DE ]--
-
-Diese Bibliothek wurde erstellt von Ze_Mi <zemi@unive.de>.
-
-Hiermit stelle ich die neue Bibliothek LibAwesomeModule vor, eine Bibliothek mit deren Hilfe man super schnell und ohne viel Aufwand neue Benachrichtigungen in AwesomeEvents hinzufügen kann.
-Wenn du wissen möchtest, wie du neue Module hinzufügst, schau dir die Dateien im Ordner Modules an.
-Du musst dich nicht um lästige Label-Erstellungen/-Positionierung oder Einstellungen kümmern, schreibe einfach den minimal nötigen Code mit maximalem Nutzen.
-
 
 --------------------------
 --      CREDITS         --

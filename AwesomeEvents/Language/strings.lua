@@ -1,11 +1,10 @@
 --[[
   This file is part of Awesome Events.
 
-  Author: @Ze_Mi <zemi@unive.de>
+  Author: Ze_Mi
   Filename: strings.lua
-  Last Modified: 23.11.18 13:30
 
-  Copyright (c) 2018 by Martin Unkel
+  Copyright (c) 2018-2024 by Martin Unkel
   License : CreativeCommons CC BY-NC-SA 4.0 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 
   Please read the README file for further information.
@@ -13,8 +12,8 @@
 
 local strings = {
 	--main
-	SI_AWEVS_ALL_MODS_DISABLED="Enable an AwesomeEvents module",
-	SI_AWEVS_DESCRIPTION="With AwesomeEvents you can get notified about many interesting events while playing.\nSince there are many modules and ways you can customise your experience,\ndon't forget to scroll down the options page.\nIf you have any wishes, improvements, new translations or found a bug, don't hesitate to write me at <zemi@unive.de> or Ingame EU\PC @Ze_Mi :)",
+	SI_AWEVS_ALL_MODS_DISABLED="Enable an Awesome Events module",
+	SI_AWEVS_DESCRIPTION="Stay in the loop with Awesome Events! Get notified about various in-game events while you play. Explore different modules and customization options to tweak your gaming experience. Don't forget to check out all the options on the settings page. Your feedback is important! If you have any suggestions, translation contributions, or bug reports, feel free to reach out. You can contact me via the addons page at https://esoui.com",
 
 	--debug
 	SI_AWEVS_DEBUG_NO_EVENT_CALLBACKS="No callbacks, event listener removed!",
@@ -23,7 +22,7 @@ local strings = {
 	SI_AWEVS_DEBUG_MODULE_EVENT_INVALID="Invalid event object!\nExpected: event={eventCode=EVENT_...,callback=function() ... end}!\nBoth keys are mandatory!\nIs:",
 	SI_AWEVS_DEBUG_MODULE_OPTION_INVALID="Invalid options object!\nExpected: option={type='',name='',tooltip='',default=...}!\nAt least those keys are mandatory!\nIs:",
 	SI_AWEVS_DEBUG_MODULE_NOT_FOUND="Module not found!",
-	SI_AWEVS_DEBUG_MODULE_NO_TIMER="This module doesn't listen to the EVENT_AWESOME_MODULE_TIMER event or you are trying to call a Timer Function inside the Enable Function, sorry thats not possible. The timer cannot be used.",
+	SI_AWEVS_DEBUG_MODULE_NO_TIMER="This module doesn't listen to the EVENT_TIMER event or you are trying to call a Timer Function inside the Enable Function, sorry thats not possible. The timer cannot be used.",
 	SI_AWEVS_DEBUG_COMMAND_USAGE="Usage: /aedebug mod_id (on\off)",
 
 	--appearance
@@ -37,6 +36,8 @@ local strings = {
 	SI_AWEVS_APPEARANCE_TEXTALIGN_RIGHT="Right",
 	SI_AWEVS_APPEARANCE_UISCALE="UI scale",
 	SI_AWEVS_APPEARANCE_UISCALE_HINT="Set the scale of the UI.",
+	SI_AWEVS_APPEARANCE_BACKGROUND_ALPHA="Background Transparency",
+	SI_AWEVS_APPEARANCE_BACKGROUND_ALPHA_HINT="Set the degree of background transparency.",
 	SI_AWEVS_APPEARANCE_COLOR_AVAILABLE="Color (availability)",
 	SI_AWEVS_APPEARANCE_COLOR_AVAILABLE_HINT="Change the text color of availability messages.",
 	SI_AWEVS_APPEARANCE_COLOR_HINT="Color (hint)",
@@ -90,8 +91,8 @@ local strings = {
 	SI_AWEMOD_CLOCK_STYLE="Appearance",
 	SI_AWEMOD_CLOCK_STYLE_HINT="Choose your preferred appearance.",
 	SI_AWEMOD_CLOCK_STYLE_TIME="Time only",
-	SI_AWEMOD_CLOCK_STYLE_DATETIME_SHORT="Date & Time (single-spaced)",
-	SI_AWEMOD_CLOCK_STYLE_DATETIME_LONG="Date & Time (double-spaced)",
+	SI_AWEMOD_CLOCK_STYLE_DATETIME_SHORT="Date & Time (single line)",
+	SI_AWEMOD_CLOCK_STYLE_DATETIME_LONG="Date & Time (double line)",
 	SI_AWEMOD_CLOCK_FORMAT="Clock format - 24 hour",
 	SI_AWEMOD_CLOCK_FORMAT_HINT="Display the clock in 24-hour/military format or in 12-hour with AM/PM.",
 
