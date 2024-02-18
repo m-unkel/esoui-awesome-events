@@ -134,7 +134,7 @@ logging.clear = function()
     end
 end
 
-local function setLogging()
+local function OnModulesChanged()
     -- logging
     local enabled = false
     for mod_id, mod in pairs(AE.core.modules) do
@@ -151,6 +151,6 @@ local function setLogging()
     end
 end
 
-CALLBACK_MANAGER:RegisterCallback(AE.const.CALLBACK_CORE, setLogging)
+CALLBACK_MANAGER:RegisterCallback(AE.const.CALLBACK_CORE, OnModulesChanged)
 
 AE.logging = logging

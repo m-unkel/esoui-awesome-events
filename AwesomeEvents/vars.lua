@@ -41,6 +41,9 @@ local function __postLoad()
 end
 
 AE.load = function()
+    -- allow modules to inject their defaults
+    CALLBACK_MANAGER:FireCallbacks(AE.const.CALLBACK_VARS_DEFAULTS, defaults)
+
     AE.vars = ZO_SavedVars:New("AwesomeEvents", 1, nil, defaults)
     AE.vars.isDefault = false
 

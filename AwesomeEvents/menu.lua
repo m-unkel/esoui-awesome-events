@@ -94,7 +94,7 @@ end -- __disable
 
 
 --- load module configuration and inject getter/setter, build default configuration
-local function LoadModulesConfiguration()
+local function buildModulesConfiguration()
     -- load characters for copy button
     local importOptions = { GetString(SI_AWEVS_IMPORT_CHARACTER_SELECT) }
     for i = 1, GetNumCharacters() do
@@ -331,7 +331,7 @@ local function LoadModulesConfiguration()
         end
     end
     return panelOptions
-end -- AE.LoadModulesConfiguration
+end -- buildModulesConfiguration
 
 
 --- create the settings menu
@@ -361,7 +361,7 @@ local function registerSettingsMenu()
     }
 
     local aePanel = LibAddonMenu2:RegisterAddonPanel(AE.panelName, panelData)
-    LibAddonMenu2:RegisterOptionControls(AE.panelName, LoadModulesConfiguration())
+    LibAddonMenu2:RegisterOptionControls(AE.panelName, buildModulesConfiguration())
 
     -- register LAM/optionsPanel events
     CALLBACK_MANAGER:RegisterCallback("LAM-PanelOpened", function(panel)
@@ -374,7 +374,7 @@ local function registerSettingsMenu()
             AE.ui.hide()
         end
     end)
-end -- AE.registerSettingsMenu
+end -- registerSettingsMenu
 
 
 CALLBACK_MANAGER:RegisterCallback(AE.const.CALLBACK_CORE, registerSettingsMenu)

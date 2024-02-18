@@ -80,6 +80,22 @@ core.pairs = function(items)
     return sorted_iterator, items, nil
 end
 
+local function loadDefaults(defaults)
+    for mod_id, mod in AE.core.pairs(AE.core.modules) do
+        local default = {
+            enabled = true,
+            spacingPosition = mod.spacingPosition or TEXT_ALIGN_BOTTOM,
+            spacing = mod.spacing or 5,
+            fontSize = mod.fontSize or 1
+        }
+        for key, value in pairs(mod.options) do
+            default[key] = value.default
+        end
+
+        defaults[mod_id] = default
+    end
+end
+
 local function reloadModules(templateName, parentControl, previousControl)
     local _previousControl = previousControl
 
@@ -98,19 +114,6 @@ local function reloadModules(templateName, parentControl, previousControl)
                 mod.labels[i] = label
                 _previousControl = label
             end
-
-            local default = {
-                enabled = true,
-                spacingPosition = mod.spacingPosition or TEXT_ALIGN_BOTTOM,
-                spacing = mod.spacing or 5,
-                fontSize = mod.fontSize or 1
-            }
-            for key, value in pairs(mod.options) do
-                default[key] = value.default
-            end
-
-            getmetatable(AE.vars).__index[mod_id] = default
-            AE.vars.default[mod_id] = default
         end
     end
 
@@ -129,6 +132,7 @@ local function reloadModules(templateName, parentControl, previousControl)
     CALLBACK_MANAGER:FireCallbacks(AE.const.CALLBACK_CORE)
 end
 
+CALLBACK_MANAGER:RegisterCallback(AE.const.CALLBACK_VARS_DEFAULTS, loadDefaults)
 CALLBACK_MANAGER:RegisterCallback(AE.const.CALLBACK_UI_PRE, reloadModules)
 
 AE.core = core

@@ -15,84 +15,6 @@ local AE = Awesome_Events
 local _lastUpdate = 0
 local _events = {}
 
---- Initialize modules, config menu, views and user configuration
-local function initialize()
-    if (AE.initialized) then
-        return
-    end
-
-    -- register MODULE events
-    CALLBACK_MANAGER:RegisterCallback(AE.const.CALLBACK_CORE, AE.UpdateEventListeners)
-
-    -- load module- and user configuration
-    AE.load()
-
-    -- register UI events
-    SCENE_MANAGER:RegisterCallback("SceneStateChanged", AE.ui.onSceneStateChanged)
-
-    AE.initialized = true
-
-    AE.ui.show()
-end -- AE.Initialize
-
----
--- MAIN FRAME UPDATE
----
-
--- main update: firering timer, call mod update functions, update the viewsize
-local function update(timestamp)
-    -- trigger EVENT_TIMER
-    if (_events[AE.const.EVENT_TIMER] ~= nil) then
-        local secondsToNextMinute = 60 - timestamp % 60
-        if (secondsToNextMinute < 10) then
-            secondsToNextMinute = secondsToNextMinute + 60
-        end
-        for mod_id, callback in pairs(_events[AE.const.EVENT_TIMER]) do
-            if (AE.vars[mod_id].enabled and AE.timer[mod_id] > 0 and AE.timer[mod_id] <= timestamp) then
-                AE.logging.d('main', 'OnTimer[' .. mod_id .. ']')
-                local seconds = callback(AE.const.EVENT_TIMER, timestamp)
-                -- no return value => execute every minute
-                if (type(seconds) ~= 'number') then
-                    seconds = secondsToNextMinute
-                else
-                    AE.logging.d('main', 'NextCustomTimer[' .. mod_id .. '] in ' .. tostring(seconds) .. ' seconds')
-                end
-                -- timer still enabled ?
-                if (AE.timer[mod_id] > 0) then
-                    if (seconds < 1) then
-                        AE.logging.d('main', 'StopTimer[' .. mod_id .. ']')
-                        AE.timer[mod_id] = 0
-                    else
-                        AE.timer[mod_id] = timestamp + seconds
-                    end
-                end
-            end
-        end
-    end
-    local resizeView = false
-    -- update each module
-    for mod_id, mod in pairs(AE.core.modules) do
-        if (mod.active and mod.hasUpdate) then
-            mod.hasUpdate = false
-            mod:Update(AE.vars[mod.id])
-            resizeView = true
-        end
-    end
-    if (resizeView) then
-        AE.ui.UpdateViewSize();
-    end
-end -- AE:Update
-
---------------------
--- EVENT LISTENER --
---------------------
-
-local function OnPlayerActivated(event, initial)
-    -- Only initialize the addon (after all addons are loaded)
-    EVENT_MANAGER:UnregisterForEvent(AE.name, EVENT_PLAYER_ACTIVATED)
-    initialize()
-end -- OnPlayerActivated
-
 local function OnEvent(...)
     local args = { ... }
     local eventCode = args[1] or 'unknown'
@@ -107,20 +29,7 @@ local function OnEvent(...)
     end
 end -- OnEvent
 
-AE.OnUpdate = function(timestamp)
-    -- Bail if we haven't completed the initialisation routine yet.
-    if (not AE.initialized or AE.ui.dragging) then
-        return
-    end
-    -- Only run this update if a full second has elapsed since last time we did so.
-    --local timestamp = GetTimeStamp()
-    if (timestamp > _lastUpdate) then
-        _lastUpdate = timestamp
-        update(GetTimeStamp())
-    end
-end -- AE.OnUpdate
-
-AE.UpdateEventListeners = function()
+local function OnModulesChanged()
     AE.logging.d('main', 'UpdateEventListeners')
 
     -- remove old listeners
@@ -161,8 +70,90 @@ AE.UpdateEventListeners = function()
             end
         end
     end
-end -- AE:UpdateEventListeners
+end -- UpdateEventListeners
 
+--- Initialize modules, config menu, views and user configuration
+local function initialize()
+    if (AE.initialized) then
+        return
+    end
+
+    -- register MODULE events
+    CALLBACK_MANAGER:RegisterCallback(AE.const.CALLBACK_CORE, OnModulesChanged)
+
+    -- load module- and user configuration
+    AE.load()
+
+    -- register UI events
+    SCENE_MANAGER:RegisterCallback("SceneStateChanged", AE.ui.onSceneStateChanged)
+
+    AE.initialized = true
+
+    AE.ui.show()
+end -- AE.Initialize
+
+-- main update: firering timer, call mod update functions, update the viewsize
+local function update(timestamp)
+    -- trigger EVENT_TIMER
+    if (_events[AE.const.EVENT_TIMER] ~= nil) then
+        local secondsToNextMinute = 60 - timestamp % 60
+        if (secondsToNextMinute < 10) then
+            secondsToNextMinute = secondsToNextMinute + 60
+        end
+        for mod_id, callback in pairs(_events[AE.const.EVENT_TIMER]) do
+            if (AE.timer[mod_id] > 0 and AE.timer[mod_id] <= timestamp) then
+                AE.logging.d('main', 'OnTimer[' .. mod_id .. ']')
+                local seconds = callback(AE.const.EVENT_TIMER, timestamp)
+                -- no return value => execute every minute
+                if (type(seconds) ~= 'number') then
+                    seconds = secondsToNextMinute
+                else
+                    AE.logging.d('main', 'NextCustomTimer[' .. mod_id .. '] in ' .. tostring(seconds) .. ' seconds')
+                end
+                -- timer still enabled ?
+                if (AE.timer[mod_id] > 0) then
+                    if (seconds < 1) then
+                        AE.logging.d('main', 'StopTimer[' .. mod_id .. ']')
+                        AE.timer[mod_id] = 0
+                    else
+                        AE.timer[mod_id] = timestamp + seconds
+                    end
+                end
+            end
+        end
+    end
+    local resizeView = false
+    -- update each module
+    for mod_id, mod in pairs(AE.core.modules) do
+        if (mod.active and mod.hasUpdate) then
+            mod.hasUpdate = false
+            mod:Update(AE.vars[mod.id])
+            resizeView = true
+        end
+    end
+    if (resizeView) then
+        AE.ui.UpdateViewSize();
+    end
+end -- update
+
+local function OnPlayerActivated(event, initial)
+    -- Only initialize the addon (after all addons are loaded)
+    EVENT_MANAGER:UnregisterForEvent(AE.name, EVENT_PLAYER_ACTIVATED)
+    initialize()
+end -- OnPlayerActivated
+
+AE.OnUpdate = function(timestamp)
+    -- Bail if we haven't completed the initialisation routine yet.
+    if (not AE.initialized or AE.ui.dragging) then
+        return
+    end
+    -- Only run this update if a full second has elapsed since last time we did so.
+    --local timestamp = GetTimeStamp()
+    if (timestamp > _lastUpdate) then
+        _lastUpdate = timestamp
+        update(GetTimeStamp())
+    end
+end -- AE.OnUpdate
 
 --------------------
 -- SLASH COMMANDS --

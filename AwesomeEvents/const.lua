@@ -22,6 +22,7 @@ local AE = {
 }
 
 AE.const = {
+    CALLBACK_VARS_DEFAULTS = "AwesomeEventsPopulateDefaults",
     CALLBACK_VARS = "AwesomeEventsVarsLoaded",
     CALLBACK_UI_PRE = "AwesomeEventsUIConfig",
     CALLBACK_CORE = "AwesomeEventsCoreLoaded",
