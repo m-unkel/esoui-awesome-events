@@ -7,18 +7,6 @@
 The addon is an advanced remake of "Awesome Info" by CrazyDutchGuy.
 If you are interested in the original version check out his great work at [URL="http://esoui.com/downloads/info192-AwesomeInfo.html"]http://esoui.com/downloads/info192-AwesomeInfo.html[/URL].
 
-[B]Improvements[/B]
-[LIST]
-[*]Fully translatable
-[*]Easily extendable with labels from other mods
-[*]Less redraws / updates, event-driven, more efficient
-[*]More built-in information
-[*]The look of every label can be customized (size and spacing)
-[*]The colors of the different types of notifications can be customized
-[*]Simplified configuration through a live preview
-[*]Import/Copy config from one character to another
-[/LIST]
-
 [B]All Features[/B]
 [LIST]
 [*]Display a Clock and (optionally) the date
@@ -38,6 +26,10 @@ If you are interested in the original version check out his great work at [URL="
 [*]Telvar stones and writ vouchers info
 [*]Amount of soul gems info (empty and filled soul gems)
 [*]Amount of Repair-Kits info (kits of any quality)
+[*]The look of every label can be customized (size and spacing)
+[*]The colors of the different types of notifications can be customized
+[*]Simplified configuration through a live preview
+[*]Import/Copy config from one character to another
 [*]Example-Extension: Flash-Info sale balance at NPC-Sells (including expenses)
 [/LIST]
 
@@ -63,18 +55,6 @@ Thanks to all members for their feedback, comments and for testing my addon
 Dieses AddOn ist eine aufwendige Neuentwicklung des AddOns "Awesome Info" von CrazyDutchGuy.
 Unter folgendem Link findest du die tolle Arbeit von CrazyDutchGuy: [URL="http://esoui.com/downloads/info192-AwesomeInfo.html"]http://esoui.com/downloads/info192-AwesomeInfo.html[/URL].
 
-[B]Verbesserungen[/B]
-[LIST]
-[*]Vollständig übersetzbar
-[*]Einfach erweiterbar durch andere AddOns
-[*]Weniger Gui-Updates, Eventgesteuert, Effizienter
-[*]Neue Informationen / Mehr Informationen
-[*]Jede Zeile kann individuell angepasst werden (Schriftgröße, Abstand)
-[*]Farben der verschiedenen Benachrichtigungs-Typen können angepasst werden
-[*]Vereinfachte Konfiguration durch eine Live-Vorschau von Awesome Events in den Einstellungen
-[*]Konfiguration von einem zum anderen Charakter importierbar
-[/LIST]
-
 [B]Alle Funktionen[/B]
 [LIST]
 [*]Uhrzeit- und optionale Datumsanzeige
@@ -94,6 +74,10 @@ Unter folgendem Link findest du die tolle Arbeit von CrazyDutchGuy: [URL="http:/
 [*]Info zu Telvar Steinen und Schriebscheinen
 [*]Info zu vorhandenen Seelensteinen (leere und gefüllte)
 [*]Info zu vorhandenen Reperatur-Kits (beliebiger Qualität)
+[*]Jede Zeile kann individuell angepasst werden (Schriftgröße, Abstand)
+[*]Farben der verschiedenen Benachrichtigungs-Typen können angepasst werden
+[*]Vereinfachte Konfiguration durch eine Live-Vorschau von Awesome Events in den Einstellungen
+[*]Konfiguration von einem zum anderen Charakter importierbar
 [*]Beispiel-Erweiterung: Flash-Info über Bilanz bei NPC-Verkäufen (Berücksichtigt auch die Ausgaben)
 [/LIST]
 

@@ -5,14 +5,7 @@
 
 [B]1.7 build-21 (18.02.2024):[/B]
 [LIST]
-[*]New: Customizable background transparency
-[*]New: Use /aecfg command to open the settings menu
-[*]Fix: API changes for skill points (credits to Evolynne)
-[*]Fix: Code refactoring
-[*]Fix: Improved integration with LibAddonMenu2
-[*]Fix: Adapted to built-in addon dependency management
-[*]Fix: No longer shipping libraries with addon
-[*]API Bump
+[*]HotFix: Fixed a bug that saved module settings were ignored (reported by Murxx)
 [/LIST]
 
 [B]1.7 build-20 (16.02.2024):[/B]
@@ -168,6 +161,11 @@
 
 
 [COLOR="Green"][SIZE="5"][B]Changelog (DE)[/B][/SIZE][/COLOR]
+
+[B]1.7 build-21 (18.02.2024):[/B]
+[LIST]
+[*]HotFix: Fehler bei der Speicherung von Module-Konfiguration behoben
+[/LIST]
 
 [B]1.7 build-20 (16.02.2024):[/B]
 [LIST]
