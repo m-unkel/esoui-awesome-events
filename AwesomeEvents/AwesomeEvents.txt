@@ -1,8 +1,8 @@
 ﻿## Title: |cFFFFB0Awesome Events|r
 ## Author: Ze_Mi
-## Description: This addon adds many customizable notifications and information to your UI. (Version: 1.7 build-21)
-## Version: 1.7 build-21
-## AddOnVersion: 21
+## Description: This addon adds many customizable notifications and information to your UI. (Version: 1.7 build-22)
+## Version: 1.7 build-22
+## AddOnVersion: 22
 ## APIVersion: 101040
 ## OptionalDependsOn: LibAddonMenu-2.0, LibMsgWin-1.0, LibFoodDrinkBuff
 ## SavedVariables: AwesomeEvents

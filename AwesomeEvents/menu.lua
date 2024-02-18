@@ -312,9 +312,7 @@ local function buildModulesConfiguration()
             if (option.type ~= nil and option.name ~= nil and option.tooltip ~= nil and option.default ~= nil) then
                 if (option.getTransformer ~= nil) then
                     option.getFunc = __get(mod_id, key, option.getTransformer)
-                    option.default = function()
-                        return option.getTransformer(option.default)
-                    end
+                    option.default = option.getTransformer(option.default)
                 else
                     option.getFunc = __get(mod_id, key)
                 end

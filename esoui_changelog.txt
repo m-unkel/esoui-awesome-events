@@ -3,9 +3,10 @@
 
 [COLOR="Green"][SIZE="5"][B]Changelog (EN)[/B][/SIZE][/COLOR]
 
-[B]1.7 build-21 (18.02.2024):[/B]
+[B]1.7 build-21,22 (18.02.2024):[/B]
 [LIST]
 [*]HotFix: Fixed a bug that saved module settings were ignored (reported by Murxx)
+[*]HotFix: Fixed a bug that reset to defaults failed
 [/LIST]
 
 [B]1.7 build-20 (16.02.2024):[/B]
@@ -165,6 +166,7 @@
 [B]1.7 build-21 (18.02.2024):[/B]
 [LIST]
 [*]HotFix: Fehler bei der Speicherung von Module-Konfiguration behoben
+[*]HotFix: Fehler beim Zurücksetzen auf Defaults behoben
 [/LIST]
 
 [B]1.7 build-20 (16.02.2024):[/B]

@@ -14,7 +14,7 @@ local AE = {
     name = 'AwesomeEvents',
     panelName = 'AwesomeEventsOptions',
     title = 'Awesome Events',
-    version = '1.7 build-20',
+    version = '1.7 build-22',
 
     vars = nil,
     timer = {},
