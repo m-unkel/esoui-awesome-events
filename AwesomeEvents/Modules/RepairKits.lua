@@ -53,12 +53,21 @@ function MOD:GetEventListeners()
             eventCode = EVENT_INVENTORY_SINGLE_SLOT_UPDATE,
             callback = function(eventCode, bagId, slotId, isNewItem, itemSoundCategory, inventoryUpdateReason, stackCountChange)
                 if( (bagId == BAG_BACKPACK or bagId == BAG_VIRTUAL) and IsItemRepairKit(bagId,slotId))then
-                    self:d('EVENT_INVENTORY_SINGLE_SLOT_UPDATE',self.data.count,stackCountChange)
+                    self:d('EVENT_INVENTORY_SINGLE_SLOT_UPDATE', self.data.count, stackCountChange)
                     self.data.count = self.data.count + stackCountChange
                     self.hasUpdate = true
                 end
             end
         },
+        {
+            eventCode = EVENT_INVENTORY_FULL_UPDATE,
+            callback = function(eventCode)
+                self:d('EVENT_INVENTORY_FULL_UPDATE')
+                self:ScanBag(BAG_BACKPACK)
+                self:ScanBag(BAG_VIRTUAL)
+                self.hasUpdate = true
+            end
+        }
     }
 end -- MOD:GetEventListeners
 

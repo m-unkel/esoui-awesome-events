@@ -102,7 +102,7 @@ function MOD:OnRidingSkillImprovement()
 
     self.hasUpdate = true
     self:d(' => hasUpdate')
-end -- MOD:OnFenceUpdate
+end -- MOD:OnRidingSkillImprovement
 
 -- LABEL HANDLER
 

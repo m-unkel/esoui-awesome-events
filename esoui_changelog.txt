@@ -3,6 +3,12 @@
 
 [COLOR="Green"][SIZE="5"][B]Changelog (EN)[/B][/SIZE][/COLOR]
 
+[B]1.7 build-23 (18.03.2024):[/B]
+[LIST]
+[*]API Bump for v9.3.5 - Scions of Ithelia DLC & Update 41
+[*]Fix: Improve inventory change detection
+[/LIST]
+
 [B]1.7 build-21,22 (18.02.2024):[/B]
 [LIST]
 [*]HotFix: Fixed a bug that saved module settings were ignored (reported by Murxx)
@@ -162,6 +168,12 @@
 
 
 [COLOR="Green"][SIZE="5"][B]Changelog (DE)[/B][/SIZE][/COLOR]
+
+[B]1.7 build-23 (18.03.2024):[/B]
+[LIST]
+[*]API Aktualisiert auf Version v9.3.5 - Scions of Ithelia DLC & Update 41
+[*]Fix: Verbesserte Erkennung von Änderungen im Inventar
+[/LIST]
 
 [B]1.7 build-21 (18.02.2024):[/B]
 [LIST]

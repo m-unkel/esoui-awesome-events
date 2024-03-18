@@ -53,11 +53,20 @@ function MOD:GetEventListeners()
         {
             eventCode = EVENT_INVENTORY_SINGLE_SLOT_UPDATE,
             callback = function(eventCode, bagId, slotId, isNewItem, itemSoundCategory, inventoryUpdateReason, stackCountChange)
-                if(bagId == BAG_BACKPACK and ( IsItemSoulGem(SOUL_GEM_TYPE_FILLED,bagId,slotId) or IsItemSoulGem(SOUL_GEM_TYPE_EMPTY,bagId,slotId)))then
+                if(bagId == BAG_BACKPACK and ( IsItemSoulGem(SOUL_GEM_TYPE_FILLED,bagId,slotId) or IsItemSoulGem(SOUL_GEM_TYPE_EMPTY,bagId,slotId) ))then
+                    self:d('EVENT_INVENTORY_SINGLE_SLOT_UPDATE', slotId)
                     self:OnChangeSoulGemCount()
                 end
             end
         },
+        {
+            eventCode = EVENT_INVENTORY_FULL_UPDATE,
+            callback = function(eventCode)
+                self:d('EVENT_INVENTORY_FULL_UPDATE')
+                self:OnChangeSoulGemCount()
+                self.hasUpdate = true
+            end
+        }
     }
 end -- MOD:GetEventListeners
 

@@ -4,50 +4,58 @@
 
 [COLOR="Green"][SIZE="5"][B]Info (EN)[/B][/SIZE][/COLOR]
 
-The addon is an advanced remake of "Awesome Info" by CrazyDutchGuy.
-If you are interested in the original version check out his great work at [URL="http://esoui.com/downloads/info192-AwesomeInfo.html"]http://esoui.com/downloads/info192-AwesomeInfo.html[/URL].
+Welcome to the enhanced version of "Awesome Info" by CrazyDutchGuy. If you're curious about the original, you can find it here: [URL="http://esoui.com/downloads/info192-AwesomeInfo.html"]http://esoui.com/downloads/info192-AwesomeInfo.html[/URL].
 
-[B]All Features[/B]
+
+[B]Key Features[/B]
 [LIST]
-[*]Display a Clock and (optionally) the date
-[*]Low armor durability warning
-[*]Low weapon charge warning
-[*]Remaining bag space warning
-[*]Buff-food effect expire timer / no buff-food effect warning (auto-hide after 5 minutes out of combat available)
-[*]Unused attribute-, skill- and champion points info
-[*]unread mails info
-[*]Missing skyshards info
-[*]Crafts research timer / or available analysis slot info
-[*]Remaining mount training timer / or training available info
-[*]Shadowy supplier cooldown timer / or available info
-[*]Remaining thieve guild sells and launders info
-[*]Backpack and bank usage info
-[*]Current money info
-[*]Telvar stones and writ vouchers info
-[*]Amount of soul gems info (empty and filled soul gems)
-[*]Amount of Repair-Kits info (kits of any quality)
-[*]The look of every label can be customized (size and spacing)
-[*]The colors of the different types of notifications can be customized
+[*]Display a Clock and, optionally, the date
+[*]Receive warnings for low armor durability and weapon charge
+[*]Get notified about remaining bag space
+[*]Track buff-food effect expiry and receive warnings for no buff-food effect (auto-hide after 5 minutes out of combat)
+[*]Access information on unused attribute, skill, and champion points
+[*]Stay informed about unread mails
+[*]Track missing skyshards to earn a new skill point
+[*]Track crafts research timer or available analysis slot info
+[*]Track remaining mount training time or available training info
+[*]Monitor Shadowy Supplier cooldown or available information
+[*]Stay updated on Thieves Guild sells and launders information
+[*]Keep tabs on backpack and bank usage
+[*]Check current money, Telvar stones, and writ vouchers
+[*]Track the amount of soul gems (empty and filled) and Repair-Kits (kits of any quality)
+[/LIST]
+
+[B]Customizations[/B]
+[LIST]
+[*]Customize the look of every label (size and spacing)
+[*]Customize notification colors for different types of alerts
 [*]Simplified configuration through a live preview
 [*]Import/Copy config from one character to another
 [*]Example-Extension: Flash-Info sale balance at NPC-Sells (including expenses)
 [/LIST]
 
-[B]Create an extension[/B]
-If you would like to extend this addon and you have some experience in programming, please have a look at the AwesomeEventsMod's source code and base your work on it.
+[B]Optional dependencies[/B]
+[LIST]
+[*][URL="https://www.esoui.com/downloads/info7-LibAddonMenu.html"]LibAddonMenu2[/URL]: Addon Settings Menu and /aecfg command
+[*][URL="https://www.esoui.com/downloads/info1902-LibFoodDrinkBuff.html"]LibFoodDrinkBuff[/URL]: Detect active food buffs
+[*][URL="https://www.esoui.com/downloads/info802-LibMsgWin.html"]LibMsgWin[/URL]: Logging - only for developers
+[/LIST]
 
-[B]Adding translations[/B]
-If you want to translate this addon into your language, please send me a copy of your translation file. I'll include it into the next update of this addon so that everyone can benefit from it. Thanks in advance! :)
-My translations and expressions aren't perfect, so please feel free to suggest improvements to existing translations.
 
-[B]Wishes/ Critics[/B]
-This addon has been tested for quite some time, however I can't guarantee that it is entirely bug-free.
-If you find bugs, please report them as soon as possible. :)
-Feel free to request new features or just tell me your opinion about this work.
+[B]Extend the Addon[/B]
+If you're interested in extending this addon and have programming experience, refer to the [URL="https://www.esoui.com/downloads/info3811.html"]AwesomeEventsMod[/URL]'s source code to base your work on it.
+
+[B]Adding Translations[/B]
+To translate this addon into your language, send me a copy of your translation file. I'll include it in the next update so everyone can benefit. Thanks in advance for your contributions! Please feel free to suggest improvements to existing translations.
+
+[B]Feedback and Support[/B]
+While this addon has undergone extensive testing, I cannot guarantee it is entirely bug-free. Please report any bugs promptly. Additionally, feel free to request new features or share your opinions about this work.
 
 [B]Credits[/B]
-Thanks to Memoraike for the russian translation
-Thanks to all members for their feedback, comments and for testing my addon
+[LIST]
+[*]Russian translation by Memoraike
+[*]Thanks to all members for their feedback, comments, and testing efforts.
+[/LIST]
 
 
 [COLOR="Green"][SIZE="5"][B]Info (DE)[/B][/SIZE][/COLOR]

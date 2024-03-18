@@ -107,8 +107,8 @@ end
 function MOD:OnTimer(timestamp)
     self:d('OnTimer')
     self.data.visible = false
-    self.dataUpdated = true
-    self:d(' => dataUpdated')
+    self.hasUpdate = true
+    self:d(' => hasUpdate')
     -- return the number of seconds when your timer should be executed the next time
     -- return nothing (nil) to execute the timer every full minute
     -- return 0 is equal to calling self:StopTimer()
@@ -123,8 +123,8 @@ function MOD:OnCloseStore()
     self.data.visible = true
 	self:StartTimer(self.data.secondsFadeOut)
 
-    self.dataUpdated = true
-    self:d(' => dataUpdated')
+    self.hasUpdate = true
+    self:d(' => hasUpdate')
 end -- MOD:OnFenceUpdate
 
 -- LABEL HANDLER

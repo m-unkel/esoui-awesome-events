@@ -149,8 +149,18 @@ function MOD:GetEventListeners()
             eventCode = EVENT_INVENTORY_SINGLE_SLOT_UPDATE,
             callback = function(eventCode, bagId, slotId, isNewItem, itemSoundCategory, inventoryUpdateReason, stackCountChange)
                 if (bagId == BAG_BACKPACK or bagId == BAG_BANK) then
+                    self:d('EVENT_INVENTORY_SINGLE_SLOT_UPDATE', slotId)
                     self:OnUpdateBag(bagId, stackCountChange)
                 end
+            end
+        },
+        {
+            eventCode = EVENT_INVENTORY_FULL_UPDATE,
+            callback = function(eventCode)
+                self:d('EVENT_INVENTORY_FULL_UPDATE')
+                self:OnUpdateBag(BAG_BACKPACK, 0)
+                self:OnUpdateBag(BAG_BANK, 0)
+                self.hasUpdate = true
             end
         },
         {
